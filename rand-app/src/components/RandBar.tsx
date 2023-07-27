@@ -3,7 +3,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
-
+import ProfileImage from '../components/images/profile_picture.jpg';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreIcon from '@mui/icons-material/MoreVert';
@@ -15,25 +15,35 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import { styled, alpha } from '@mui/material/styles';
 import logoImage from './images/logo.png'; 
-import { Avatar } from '@mui/material';
-//import AdbIcon from '@mui/icons-material/Adb';
-//import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import Grid from '@mui/material/Grid';
 
+// define the source of your RandBar here
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.black, 0.2),
+  borderRadius: 0,
+  backgroundColor: 'white',
+  border: '1px solid #ccc',
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.black, 0.3),
   },
   marginRight: theme.spacing(2),
-  marginLeft: 0,
+  marginLeft: theme.spacing(5), 
   width: '100%',
   [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
+    marginLeft: theme.spacing(5), 
     width: 'auto',
   },
+  [theme.breakpoints.down('xs')]: {
+    width: '100%',
+  },
+  [theme.breakpoints.up('md')]: {
+    width: '50%',
+  },
+  [theme.breakpoints.up('lg')]: {
+    width: '30%',
+  },
 }));
+
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
@@ -52,18 +62,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
+    maxWidth: '100%', 
     [theme.breakpoints.up('md')]: {
-      width: '20ch',
+      width: '50ch',
+    },
+    [theme.breakpoints.up('lg')]: {
+      width: '70ch',
     },
   },
 }));
 
-{/*const whiteIconButton = styled(IconButton)(({ theme }) => ({
-  color: 'white',
-}));*/}
-const BlueIconButton = styled(IconButton)(({ theme }) => ({
-  color: 'blue',
-}));
+
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -71,6 +80,11 @@ export default function PrimarySearchAppBar() {
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const LogoImage = styled('img')({
+    width: '100%',
+    maxWidth: '50px',
+  });
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -84,6 +98,7 @@ export default function PrimarySearchAppBar() {
     setAnchorEl(null);
     handleMobileMenuClose();
   };
+  
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget);
@@ -129,33 +144,19 @@ export default function PrimarySearchAppBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-      <BlueIconButton
-                size="large"
-                aria-label="show 4 new mails"
-                color="inherit">
-                <Badge badgeContent={4} color="error">
-                  <img src={"./images/logo.png"} alt="Logo" height="24" />
-                </Badge>
-              </BlueIconButton>
-        <Typography variant="body1" style={{ color: 'black' }}>
-          Ravenour
-        </Typography>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="Find people"
-          color="inherit"
-        >
-          <Badge> {/*badgeContent={17} color="error"*/}
-            <div style={{ color: 'blue' }}>
-              <img src="./images/logo.png" alt="Meeting People" height="24" />
-            </div>
+      <IconButton
+  size="large"
+  aria-label="show 4 new mails"
+  color="inherit">
+  <Badge badgeContent={4} color="info">
+    <img src={"./images/logo"} alt="Logo" height="12" />
+  </Badge>
+          <Badge> 
+              <img src="./images/logo.png" alt="logo" style={{ height: '32px', width: '32px' }} />         
           </Badge>
         </IconButton>
         <Typography variant="h6" style={{ color: 'black' }}>
 </Typography>
-
       </MenuItem>
       <MenuItem>
         <IconButton
@@ -173,84 +174,70 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 0 }}>
-      <AppBar position="static" sx={{ backgroundColor: 'transparent', boxShadow: 'none', borderBottom: '1px solid black' }}>
-      <Container maxWidth="xl" >
-        <Toolbar disableGutters>
-          
-        <Typography
-  variant="h4"
-  noWrap
-  component="a"
-  href="/"
-  sx={{
-    mr: 2,
-    display: { xs: 'none', md: 'flex' },
-    fontFamily: 'monospace',
-    fontWeight: 700,
-    letterSpacing: '.3rem',
-    color: 'black', 
-    textDecoration: 'none',
-    alignItems: 'center',
-  }}>
-{/*logoImage*/}
-  <img src={logoImage} alt="Logo" height="24" style={{ marginRight: '8px' }} />
-  Ravenour
-</Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href=""
-              sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
-                flexGrow: 1,
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'black', 
-                textDecoration: 'none',
-              }}
-            >
-              Randevour
-            </Typography>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}/>
-            </Search>
-            <Box sx={{ flexGrow: 3 }} />
-            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton>
-                <Badge >
-                  <Typography style={{ color: 'black' }}>Find people</Typography>
-                </Badge>
-              </IconButton>
-              <IconButton
-                size="large"
-                aria-label="show 4 new mails"
-                color="default">
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" sx={{ backgroundColor: 'transparent', boxShadow: 'none', borderBottom: '1px solid #D3D3D3' }}>
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Grid container alignItems="center">
+              <Grid item xs={4} md={3}> 
+                <Typography
+                  variant="h4"
+                  noWrap
+                  component="a"
+                  href="/"
+                  sx={{
+                    mr: 2,
+                    display: { xs: 'none', md: 'flex' },
+                    fontFamily: 'monospace',
+                    fontWeight: 700,
+                    letterSpacing: '.3rem',
+                    color: 'black',
+                    textDecoration: 'none',
+                    alignItems: 'center',
+                    marginLeft: '10px',
+                  }}
+                >
+                  <LogoImage src={logoImage} alt="Logo" style={{ marginLeft: '40px', margin: '15px' }} />
+                  Randevou
+                </Typography>
+              </Grid>
+              <Grid item xs={8} md={7}> 
+                <Search>
+                  <SearchIconWrapper sx={{ color: 'grey' }}>
+                    <SearchIcon />
+                  </SearchIconWrapper>
+                  <StyledInputBase
+                    placeholder="Search…"
+                    inputProps={{ 'aria-label': 'search', color: 'black' }}
+                  />
+                </Search>
+              </Grid>
+              <Grid item xs={8} md={2}>
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                  <IconButton>
+                    <Badge>
+                      <Typography style={{ color: 'black', margin: '10px', fontSize: '20px' }}>Find people</Typography>
+                    </Badge>
+                  </IconButton>
+                  <IconButton size="large" aria-label="show 4 new mails" color="info">
+                    <Typography style={{ color: 'black', margin: '10px', fontSize: '20px' }}>
+                      Messages <span style={{ backgroundColor: '#D0F4FE', padding: '2px', borderRadius: '1px', color: 'blue', width: '30px', display: 'inline-block', textAlign: 'center', fontSize: '15px' }}>{4}</span>
+                    </Typography>
+                  </IconButton>
+                  <IconButton>
+                    <Badge>
+                      <Typography style={{ color: 'black', margin: '10px', fontSize: '20px' }}>My contact</Typography>
+                    </Badge>
+                  </IconButton>
+                  <IconButton style={{ marginRight: '60px' }}>
+                    <img src={ProfileImage} alt="Profile" style={{ borderRadius: '50%', height: '40px', width: '40px', objectFit: 'cover' }} />
+                  </IconButton>
+                </Box>
+              </Grid>
+            </Grid>
 
-                <Badge badgeContent={4} color="error">
-                  <Typography style={{ color: 'black' }}>Messages</Typography>
-                </Badge>
-              </IconButton>
-              <IconButton>
-                <Badge>
-                  <Typography style={{ color: 'black' }}>My contact</Typography>
-                </Badge>
-              </IconButton>
-              <IconButton>
-              <Avatar alt="Remy Sharp" imgProps={{ src: "./images/profile.png" }} />
-    </IconButton> 
-            </Box>
-            {/*responsible menu*/}
-            <Box sx={{ display: { xs: 'flex', md: 'none'} }}>
+            {/* Responsible menu */}
+            <Box sx={{ display: { xs: 'flex', md: 'none', color: 'black' } }}>
               <IconButton
                 size="large"
                 aria-label="show more"
