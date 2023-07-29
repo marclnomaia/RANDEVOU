@@ -1,9 +1,6 @@
 import React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
-import ProfileImage from '../components/images/profile_picture.jpg';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreIcon from '@mui/icons-material/MoreVert';
@@ -15,6 +12,9 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import { styled, alpha } from '@mui/material/styles';
 import logoImage from './images/logo.png'; 
+import { Badge, IconButton } from '@mui/material';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import ProfileImage from '../components/images/profile_picture.jpg';
 import Grid from '@mui/material/Grid';
 
 // define the source of your RandBar here
@@ -229,8 +229,9 @@ export default function PrimarySearchAppBar() {
                       <Typography style={{ color: 'black', margin: '10px', fontSize: '20px' }}>My contact</Typography>
                     </Badge>
                   </IconButton>
-                  <IconButton style={{ marginRight: '60px' }}>
-                    <img src={ProfileImage} alt="Profile" style={{ borderRadius: '50%', height: '40px', width: '40px', objectFit: 'cover' }} />
+                  <IconButton style={{ marginRight: '60px', position: 'relative' }}>
+                    <img src={ProfileImage} alt="Profile" style={{ borderRadius: '100%', height: '60px', width: '60px', objectFit: 'cover' }} />
+                   <FiberManualRecordIcon style={{ color: 'green', position: 'absolute', top: 6, right: 7, height: '20px', width: '20px' }} />
                   </IconButton>
                 </Box>
               </Grid>

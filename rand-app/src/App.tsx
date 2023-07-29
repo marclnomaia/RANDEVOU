@@ -2,15 +2,15 @@
 //import { AppBar } from '@mui/material';
 import './App.css';
 import RandBar from './components/RandBar';
-import RandImage from './components/RandImage';
+import RandProfile from './components/RandProfile';
+
 
 
 function App() {
   return (
     <div className="App">
       <RandBar/>
-      <RandImage/>
-      
+      <RandProfile/>
     </div>
   );
 }
