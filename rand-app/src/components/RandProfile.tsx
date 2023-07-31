@@ -1,25 +1,23 @@
+import React from 'react';
 import imageSrc from './images/main_picture.jpg';
-import { Box, Typography, Divider,Chip,Avatar, ListItem, List, ListItemIcon } from '@mui/material';
+import { Box, Typography, Divider, Chip, Avatar, ListItem, List, ListItemIcon } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-
-export default function RandProfile()  {
-  return (
-
-
-    
-    <Box sx={{ ml: 15, mt: 15, width: 170, alignItems: 'left' }}>
-  <Box sx={{ width: 200, height: 210, marginTop: -10 }}>
-    <Avatar
-      src={imageSrc}
-      alt="Profile"
-      sx={{ width: '100%', height: '100%', borderRadius:0 }}
-    />
-  </Box>
-      <Box sx={{ display: 'flex', alignItems: 'flex-start', my: 2, border: 'none' }}>
-        <Typography variant="body1" sx={{ mt: 3, mr: 2, fontSize: 10, color: '#ccc' }}>Work</Typography>
-        <Divider flexItem sx={{ width: 170, height: 2, mt: 4, mb: 1, ml: -2 }} />
-      </Box>
+class RandProfile extends React.Component {
+  render() {
+    return (
+      <Box sx={{ ml: 15, mt: 15, width: 170, alignItems: 'left' }}>
+        <Box sx={{ width: 200, height: 210, marginTop: -10 }}>
+          <Avatar
+            src={imageSrc}
+            alt="Profile"
+            sx={{ width: '100%', height: '100%', borderRadius:0 }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'flex-start', my: 2, border: 'none' }}>
+          <Typography variant="body1" sx={{ mt: 3, mr: 2, fontSize: 10, color: '#ccc' }}>Work</Typography>
+          <Divider flexItem sx={{ width: 170, height: 2, mt: 4, mb: 1, ml: -2 }} />
+        </Box>
       <Box sx={{ width: 200, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
         <Typography variant="body1" sx={{ fontWeight: 'bold', fontSize: 13 }}>Spotify New York</Typography>
         <Typography variant="body1" sx={{ fontSize: 12, color:'grey' }}>170 William Street</Typography>
@@ -73,23 +71,20 @@ export default function RandProfile()  {
                 New York, NY
               </Typography>
             </Box>
-            <Typography variant="subtitle2" sx={{ fontSize: 12 }}>Junior Programmer</Typography>
+            <Typography variant="subtitle2" sx={{ fontSize: 12, color:'#007FFF', fontWeight: 'bold' }}>Junior Programmer</Typography>
+            {/*Display Rankng*/}
+            <Typography variant="subtitle1" sx={{ fontSize: 12, color:'#ccc', fontWeight: 'bold',mt:3 }}>Rankings</Typography>
           </Box>
         </ListItem>
+        
       </List>
     </Box>
-
-{/*Rating*/}
-
-
-
-
-
     </Box>
+    
     )
     }
-
- 
+  }
+ export default RandProfile;
 
 
 
