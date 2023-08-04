@@ -12,6 +12,7 @@ import Tab from '@mui/material/Tab';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ChatBubbleTwoToneIcon from '@mui/icons-material/ChatBubbleTwoTone';
 import RandTimeline from './RandTimeline';
+import { Divider } from '@mui/material';
 
 export default function RandTaskBar() {
   const [messageBoxVisible, setMessageBoxVisible] = useState(false);
@@ -50,31 +51,37 @@ export default function RandTaskBar() {
 
       {messageBoxVisible &&
         <Box sx={{ marginTop: 3, borderRadius: '10px', padding: 2, width: '500px', margin: '20px auto' }}>
-          {/* Here you can add your message Box UI */}
+
           <Typography sx={{ fontSize: 12 }}>This is where your message Box would go...</Typography>
         </Box>}
 
       {contactInfoVisible &&
-        <Box sx={{ marginTop: 3, borderRadius: '10px', padding: 2, width: '500px', margin: '20px auto' }}>
-          <Tabs value={tabValue} onChange={handleChange}>
-            <Tabs value={tabValue} onChange={handleChange}>
-              <Tab label={<Stack direction="row" spacing={1} alignItems="center"><VisibilityIcon /><Typography sx={{ fontSize: 11 }}>Timeline</Typography></Stack>} value="timeline" />
-              <Tab label={<Stack direction="row" spacing={1} alignItems="center"><PersonIcon /><Typography sx={{ fontSize: 11 }}>About</Typography></Stack>} value="about" />
-            </Tabs>
+        <Box sx={{ marginTop: 3, borderRadius: '10px', padding: 2, width: '500px', margin: '20px auto', ml: 45 }}>
+          <Tabs
+            value={tabValue}
+            onChange={handleChange}
+            TabIndicatorProps={{
+              style: {
+                backgroundColor: 'blue',
+                width: '100px'
+              },
+            }}>
+            <Tab label={<Stack direction="row" spacing={1} alignItems="center"><VisibilityIcon /><Typography sx={{ fontSize: 11 }}>Timeline</Typography></Stack>} value="timeline" />
+            <Tab label={<Stack direction="row" spacing={1} alignItems="center"><PersonIcon /><Typography sx={{ fontSize: 11 }}>About</Typography></Stack>} value="about" />
           </Tabs>
+          <Divider flexItem sx={{ width: 750, height: 2, mt: -0.5, mb: 1, ml: 2 }} />
 
           {tabValue === 'timeline' && <RandTimeline />}
-
           {tabValue === 'about' &&
             <Box sx={{ marginTop: 3, fontSize: 12 }}>
-              <Typography variant="body2" component="div" sx={{ marginBottom: 2, color: 'grey', textAlign: 'left', fontSize: 12 }}>Contact Information</Typography>
+              <Typography variant="body2" component="div" sx={{ marginBottom: 2, color: 'grey', textAlign: 'left', fontSize: 12, ml: 2 }}>Contact Information</Typography>
               <List>
                 <ListItem>
                   <ListItemText
                     primary={
                       <Box display="flex" gap={6} sx={{ fontSize: 12 }}>
-                        <Typography variant="body2" component="span" sx={{ fontSize: 12, mt: -3, ml: -2 }}>Phone:</Typography>
-                        <Typography variant="body2" component="span" color="primary" sx={{ fontSize: 12, mt: -3, ml: -1 }} >+4167318796</Typography>
+                        <Typography variant="body2" component="span" sx={{ fontSize: 12, mt: -3, ml: 0 }}>Phone:</Typography>
+                        <Typography variant="body2" component="span" color="primary" sx={{ fontSize: 12, mt: -3, ml: 0 }} >+4167318796</Typography>
                       </Box>
                     } />
                 </ListItem>
@@ -83,10 +90,10 @@ export default function RandTaskBar() {
                     primary={
                       <Box sx={{ width: 200, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                         <Box display="flex" gap={3} flexDirection="row" alignItems="center" >
-                          <Typography variant="body1" component="span" sx={{ fontSize: 12, mt: -2, ml: -2 }}>Address:</Typography>
-                          <Typography variant="body1" sx={{ fontSize: 12, color: 'black', ml: 1, mt: -2, width: '200px' }}>525 E 68th Street</Typography>
+                          <Typography variant="body1" component="span" sx={{ fontSize: 12, mt: -2, ml: 0 }}>Address:</Typography>
+                          <Typography variant="body1" sx={{ fontSize: 12, color: 'black', ml: 2, mt: -2, width: '200px' }}>525 E 68th Street</Typography>
                         </Box>
-                        <Typography variant="body2" sx={{ fontSize: 12, color: 'black', paddingY: 2, width: '200px', ml: 8 }}>New York, NY 10651-78 156-187-60</Typography>
+                        <Typography variant="body2" sx={{ fontSize: 12, color: 'black', paddingY: 2, width: '200px', ml: 11, mt: -2 }}>New York, NY 10651-78 156-187-60</Typography>
                       </Box>
                     }
                   />
@@ -95,8 +102,8 @@ export default function RandTaskBar() {
                   <ListItemText
                     primary={
                       <Box display="flex" gap={6} >
-                        <Typography variant="body2" component="span" sx={{ fontSize: 12, mt: -3, ml: -2 }}>E-mail:</Typography>
-                        <Typography variant="body2" component="span" color="primary" sx={{ fontSize: 12, mt: -3, ml: -1 }}>marcilino.damaia@gmail.com</Typography>
+                        <Typography variant="body2" component="span" sx={{ fontSize: 12, mt: -3, ml: 0 }}>E-mail:</Typography>
+                        <Typography variant="body2" component="span" color="primary" sx={{ fontSize: 12, mt: -3, ml: 0 }}>marcilino.damaia@gmail.com</Typography>
                       </Box>
                     }
                   />
@@ -105,21 +112,21 @@ export default function RandTaskBar() {
                   <ListItemText
                     primary={
                       <Box display="flex" gap={8}>
-                        <Typography variant="body2" component="span" sx={{ fontSize: 12, ml: -2 }}>Site:</Typography>
-                        <Typography variant="body2" component="span" color="primary" sx={{ fontSize: 12, ml: -1 }}>marcmaia.com</Typography>
+                        <Typography variant="body2" component="span" sx={{ fontSize: 12, mt: -2 }}>Site:</Typography>
+                        <Typography variant="body2" component="span" color="primary" sx={{ fontSize: 12, ml: -0.5, mt: -2 }}>marcmaia.com</Typography>
                       </Box>
                     }
                   />
                 </ListItem>
               </List>
-              <Typography variant="body2" component="div" sx={{ marginBottom: 2, color: 'grey', textAlign: 'left', fontSize: 12 }}>Basic Information</Typography>
+              <Typography variant="body2" component="div" sx={{ marginBottom: 2, color: 'grey', textAlign: 'left', fontSize: 12, ml: 2 }}>Basic Information</Typography>
               <List>
                 <ListItem>
                   <ListItemText
                     primary={
                       <Box display="flex" gap={4} >
-                        <Typography variant="body2" sx={{ fontSize: 12, mt: -2, ml: -2 }} >Birthday</Typography>
-                        <Typography variant="body2" sx={{ fontSize: 12, mt: -2, ml: 0 }} >June 5, 1992</Typography>
+                        <Typography variant="body2" sx={{ fontSize: 12, mt: -3, ml: 0 }} >Birthday</Typography>
+                        <Typography variant="body2" sx={{ fontSize: 12, mt: -3, ml: 0 }} >June 5, 1992</Typography>
                       </Box>
                     }
                   />
@@ -128,8 +135,8 @@ export default function RandTaskBar() {
                   <ListItemText
                     primary={
                       <Box display="flex" gap={4}>
-                        <Typography variant="body2" sx={{ fontSize: 12, mt: -1, ml: -2 }}>Gender</Typography>
-                        <Typography variant="body2" sx={{ fontSize: 12, mt: -1, ml: 0 }}>Male</Typography>
+                        <Typography variant="body2" sx={{ fontSize: 12, mt: -2 }}>Gender</Typography>
+                        <Typography variant="body2" sx={{ fontSize: 12, mt: -2, ml: 0.5 }}>Male</Typography>
                       </Box>
                     }
                   />
