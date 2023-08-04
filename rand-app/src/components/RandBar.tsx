@@ -11,11 +11,14 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import { styled, alpha } from '@mui/material/styles';
-import logoImage from './images/logo.png'; 
+import logoImage from './images/logo.png';
 import { Badge, IconButton } from '@mui/material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import ProfileImage from '../components/images/profile_picture.jpg';
 import Grid from '@mui/material/Grid';
+import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
+import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
+
 
 // define the source of your RandBar here
 const Search = styled('div')(({ theme }) => ({
@@ -27,13 +30,9 @@ const Search = styled('div')(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.black, 0.3),
   },
   marginRight: theme.spacing(2),
-  marginLeft: theme.spacing(5), 
+  marginLeft: theme.spacing(5),
   width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(5), 
-    width: 'auto',
-  },
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints.down('sm')]: {
     width: '100%',
   },
   [theme.breakpoints.up('md')]: {
@@ -41,6 +40,7 @@ const Search = styled('div')(({ theme }) => ({
   },
   [theme.breakpoints.up('lg')]: {
     width: '30%',
+
   },
 }));
 
@@ -62,7 +62,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
-    maxWidth: '100%', 
+    maxWidth: '100%',
     [theme.breakpoints.up('md')]: {
       width: '50ch',
     },
@@ -75,16 +75,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 export default function PrimarySearchAppBar() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
 
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const LogoImage = styled('img')({
     width: '100%',
     maxWidth: '50px',
   });
+
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
+    React.useState<null | HTMLElement>(null);
+
+  const isMenuOpen = Boolean(anchorEl);
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -98,7 +101,6 @@ export default function PrimarySearchAppBar() {
     setAnchorEl(null);
     handleMobileMenuClose();
   };
-  
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget);
@@ -125,7 +127,6 @@ export default function PrimarySearchAppBar() {
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
-
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
@@ -144,42 +145,47 @@ export default function PrimarySearchAppBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-      <IconButton
-  size="large"
-  aria-label="show 4 new mails"
-  color="inherit">
-  <Badge badgeContent={4} color="info">
-    <img src={"./images/logo"} alt="Logo" height="12" />
-  </Badge>
-          <Badge> 
-              <img src="./images/logo.png" alt="logo" style={{ height: '32px', width: '32px' }} />         
+        <IconButton size="large" color="inherit">
+          <Badge color="error">
+            <PeopleOutlineIcon />
           </Badge>
         </IconButton>
-        <Typography variant="h6" style={{ color: 'black' }}>
-</Typography>
+        <p>Find People</p>
       </MenuItem>
       <MenuItem>
         <IconButton
           size="large"
-          edge="end"
-          aria-label="account of current user"
-          aria-controls={menuId}
-          aria-haspopup="true"
-          onClick={handleProfileMenuOpen}
+          color="inherit"
+          aria-label="show 4 new mails"
         >
-          <AccountCircle style={{ color: 'black' }} />
+          <Badge badgeContent={4} color="error">
+            <LocalPostOfficeIcon />
+          </Badge>
         </IconButton>
+        <p>Messages</p>
+      </MenuItem>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <AccountCircle />
+        </IconButton>
+        <p>My Contacts</p>
       </MenuItem>
     </Menu>
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, fontFamily: 'Helvetica, Arial, sans-serif', fontSize: '14' }}>
       <AppBar position="static" sx={{ backgroundColor: 'transparent', boxShadow: 'none', borderBottom: '1px solid #D3D3D3' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Grid container alignItems="center">
-              <Grid item xs={4} md={3}> 
+              <Grid item xs={4} md={3}>
                 <Typography
                   variant="h4"
                   noWrap
@@ -188,20 +194,21 @@ export default function PrimarySearchAppBar() {
                   sx={{
                     mr: 2,
                     display: { xs: 'none', md: 'flex' },
-                    fontFamily: 'monospace',
                     fontWeight: 700,
                     letterSpacing: '.3rem',
                     color: 'black',
                     textDecoration: 'none',
                     alignItems: 'center',
                     marginLeft: '10px',
+                    fontSize: '22px',
+                    fontFamily: 'Helvetica, Arial, sans-serif'
                   }}
                 >
                   <LogoImage src={logoImage} alt="Logo" style={{ marginLeft: '40px', margin: '15px' }} />
                   Randevou
                 </Typography>
               </Grid>
-              <Grid item xs={8} md={7}> 
+              <Grid item xs={8} md={7}>
                 <Search>
                   <SearchIconWrapper sx={{ color: 'grey' }}>
                     <SearchIcon />
@@ -216,28 +223,43 @@ export default function PrimarySearchAppBar() {
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                   <IconButton>
                     <Badge>
-                      <Typography style={{ color: 'black', margin: '10px', fontSize: '20px' }}>Find people</Typography>
+                      <Typography style={{ color: 'black', margin: '10px', fontSize: '16px', fontFamily: 'Helvetica, Arial, sans-serif' }}>Find people</Typography>
                     </Badge>
                   </IconButton>
                   <IconButton size="large" aria-label="show 4 new mails" color="info">
-                    <Typography style={{ color: 'black', margin: '10px', fontSize: '20px' }}>
-                      Messages <span style={{ backgroundColor: '#D0F4FE', padding: '2px', borderRadius: '1px', color: 'blue', width: '30px', display: 'inline-block', textAlign: 'center', fontSize: '15px' }}>{4}</span>
+                    <Typography style={{ color: 'black', margin: '10px', fontSize: '16px', fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                      Messages
                     </Typography>
                   </IconButton>
                   <IconButton>
                     <Badge>
-                      <Typography style={{ color: 'black', margin: '10px', fontSize: '20px' }}>My contact</Typography>
+                      <Typography style={{ color: 'black', margin: '10px', fontSize: '16px', fontFamily: 'Helvetica, Arial, sans-serif' }}>My contact</Typography>
                     </Badge>
                   </IconButton>
-                  <IconButton style={{ marginRight: '60px', position: 'relative' }}>
+                  <IconButton style={{ marginRight: '60px', position: 'relative' }} onClick={handleProfileMenuOpen}>
                     <img src={ProfileImage} alt="Profile" style={{ borderRadius: '100%', height: '60px', width: '60px', objectFit: 'cover' }} />
-                   <FiberManualRecordIcon style={{ color: 'green', position: 'absolute', top: 6, right: 7, height: '20px', width: '20px' }} />
+                    <div style={{
+                      position: 'absolute',
+                      top: 6,
+                      right: 7,
+                      height: '18px',
+                      width: '18px',
+                      borderRadius: '50%',
+                      boxShadow: '0 0 0 2px white',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>
+                      <FiberManualRecordIcon style={{
+                        color: 'green',
+                        height: '24px',
+                        width: '24px'
+                      }} />
+                    </div>
                   </IconButton>
                 </Box>
               </Grid>
             </Grid>
-
-            {/* Responsible menu */}
             <Box sx={{ display: { xs: 'flex', md: 'none', color: 'black' } }}>
               <IconButton
                 size="large"
@@ -252,6 +274,7 @@ export default function PrimarySearchAppBar() {
           </Toolbar>
         </Container>
       </AppBar>
+      <Container maxWidth="xl" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}></Container>
       {renderMobileMenu}
       {renderMenu}
     </Box>

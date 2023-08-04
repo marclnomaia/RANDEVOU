@@ -12,10 +12,10 @@ export const RandRating = () => {
       display: 'flex',
       flexDirection: 'row',
       paddingTop: '10px',
-      marginLeft:'100',
-      
+      marginLeft: '100',
+
     }}>
-      <Stack spacing={2} direction="row" sx={{ml:75, mt:-2}}>
+      <Stack spacing={2} direction="row" sx={{ ml: 50, mt: -2 }}>
         <Typography variant="body1" sx={{ fontWeight: 'bold', fontSize: 20 }}>8.6</Typography>
         <Rating name="simple-controlled" value={value} onChange={handleChange} precision={2} sx={{ color: '#007FFF' }} />
       </Stack>
