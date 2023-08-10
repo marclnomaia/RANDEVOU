@@ -1,10 +1,16 @@
 
-//import { AppBar } from '@mui/material';
+
 import './App.css';
-import RandBar from './components/RandBar';
-import RandProfile from './components/RandProfile';
-import { RandRating } from './components/RandRating';
-import RandTaskBar from './components/RandTaskBar';
+import RandBar from './components/NavBar/RandBar';
+import RandProfile from './components/Profile/RandProfile';
+import { RandRating } from './components/Sidebar/RandRating';
+import RandTaskBar from './components/Taskbar/RandTaskBar';
+//import { GridTest1 } from './components/GridTest1';
+//import { GridScratch } from './components/GridEx/GridScratch';
+
+
+
+
 
 function App() {
   return (
@@ -13,6 +19,8 @@ function App() {
       <RandProfile />
       <RandRating />
       <RandTaskBar />
+      {/*<GridTest1 />
+      <GridScratch />*/}
 
 
 

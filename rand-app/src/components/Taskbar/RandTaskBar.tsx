@@ -11,8 +11,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ChatBubbleTwoToneIcon from '@mui/icons-material/ChatBubbleTwoTone';
-import RandTimeline from './RandTimeline';
 import { Divider } from '@mui/material';
+import RandTimeline from '../Sidebar/RandTimeline';
 
 export default function RandTaskBar() {
   const [messageBoxVisible, setMessageBoxVisible] = useState(false);
@@ -25,6 +25,8 @@ export default function RandTaskBar() {
 
 
   return (
+
+
     <Box sx={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
       <Stack direction="row" spacing={2} justifyContent="center">
 

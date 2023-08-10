@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -11,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import { styled, alpha } from '@mui/material/styles';
-import logoImage from './images/logo.png';
+import logoImage from './components/images/logo.png';
 import { Badge, IconButton } from '@mui/material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import ProfileImage from '../components/images/profile_picture.jpg';
@@ -21,6 +22,8 @@ import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 
 
 // define the source of your RandBar here
+
+//search box
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: 0,
@@ -44,7 +47,7 @@ const Search = styled('div')(({ theme }) => ({
   },
 }));
 
-
+//inside search
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: '100%',
@@ -81,6 +84,11 @@ export default function PrimarySearchAppBar() {
     width: '100%',
     maxWidth: '50px',
   });
+  const [showOptions, setShowOptions] = useState(false);
+
+  const handleClick = () => {
+    setShowOptions(!showOptions);
+  }
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -179,6 +187,9 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
+
+
+
   return (
     <Box sx={{ flexGrow: 1, fontFamily: 'Helvetica, Arial, sans-serif', fontSize: '14' }}>
       <AppBar position="static" sx={{ backgroundColor: 'transparent', boxShadow: 'none', borderBottom: '1px solid #D3D3D3' }}>
@@ -221,11 +232,32 @@ export default function PrimarySearchAppBar() {
               </Grid>
               <Grid item xs={8} md={2}>
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                  <IconButton>
-                    <Badge>
-                      <Typography style={{ color: 'black', margin: '10px', fontSize: '16px', fontFamily: 'Helvetica, Arial, sans-serif' }}>Find people</Typography>
-                    </Badge>
-                  </IconButton>
+                  <div>
+                    <IconButton onClick={handleClick}>
+                      <Badge>
+                        <Typography style={{ color: 'black', margin: '10px', fontSize: '16px', fontFamily: 'Helvetica, Arial, sans-serif', marginTop: '18px', marginRight: '20px' }}>Find people</Typography>
+                      </Badge>
+                    </IconButton>
+                    {showOptions && (
+                      <div style={{
+                        border: '1px solid #ccc',
+                        width: '100%',
+                        padding: '10px',
+                        backgroundColor: '#f9f9f9',
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        position: 'fixed',
+                        left: '50%',
+                        top: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        marginTop: '20px'
+
+                      }}>
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+                        <br />
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                      </div>
+                    )}
+                  </div>
                   <IconButton size="large" aria-label="show 4 new mails" color="info">
                     <Typography style={{ color: 'black', margin: '10px', fontSize: '16px', fontFamily: 'Helvetica, Arial, sans-serif' }}>
                       Messages
