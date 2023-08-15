@@ -1,6 +1,7 @@
 
 
 import './App.css';
+//import RandNav from './components/GridEx/RandNav';
 import RandBar from './components/NavBar/RandBar';
 import RandProfile from './components/Profile/RandProfile';
 import { RandRating } from './components/Sidebar/RandRating';
@@ -20,7 +21,8 @@ function App() {
       <RandRating />
       <RandTaskBar />
       {/*<GridTest1 />
-      <GridScratch />*/}
+      <GridScratch />
+      <RandNav />*/}
 
 
 

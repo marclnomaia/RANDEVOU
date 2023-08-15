@@ -1,5 +1,5 @@
 import React from 'react';
-import imageSrc from './images/main_picture.jpg';
+import imageSrc from '../images/main_picture.jpg';
 import { Box, Typography, Divider, Chip, Avatar, ListItem, List, ListItemIcon } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
