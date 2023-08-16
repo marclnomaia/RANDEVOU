@@ -8,7 +8,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 import imageSrc from '../images/main_picture.jpg';
 
 
-const RandProfile = () => {
+const Profile = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
@@ -21,13 +21,13 @@ const RandProfile = () => {
         <Grid item xs={12} md={6} lg={4}>
           <Box
             sx={{
-              ml: isMobile ? 3 : 15, mt: isMobile ? 8 : 13, width: isMobile ? '75%' : 170,
+              ml: isMobile ? 2 : 15, mt: isMobile ? 15 : 13, width: isMobile ? '75%' : 170,
               fontFamily: 'Helvetica, Arial, sans-serif'
             }}>
 
             <Box
               sx={{
-                width: isMobile ? '30%' : 170, height: isMobile ? 100 : 195, marginTop: -10
+                width: isMobile ? '30%' : 170, height: isMobile ? 90 : 195, marginTop: -10
               }}>
               <Avatar
                 src={imageSrc}
@@ -37,6 +37,7 @@ const RandProfile = () => {
                 }}
               />
             </Box>
+
             <Box
               sx={{
                 display: 'flex', alignItems: 'flex-start', my: 2, border: 'none'
@@ -52,6 +53,7 @@ const RandProfile = () => {
                   width: 170, height: 2, mt: isMobile ? 0.6 : 3, mb: 1, ml: -2
                 }} />
             </Box>
+
             <Box
               sx={{
                 width: 200, display: 'flex', flexDirection: 'column', alignItems: 'flex-start'
@@ -75,6 +77,7 @@ const RandProfile = () => {
               >New York,NY 10038-78 212-312-51
               </Typography>
             </Box>
+
             <Chip label="Primary" variant="outlined"
               sx={{
                 mt: isMobile ? -8 : -15,
@@ -209,24 +212,17 @@ const RandProfile = () => {
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                       <Typography variant="h6" component="div"
                         sx={{
-                          fontWeight: 'bold', fontSize: isMobile ? 11 : 25, mt: isMobile ? 7.5 : 1
+                          fontWeight: 'bold', fontSize: isMobile ? 10 : 25, mt: isMobile ? 9 : 1
                         }}>
                         Marcilino da Maia
                       </Typography>
-                      <ListItemIcon
-                        sx={{ //Location
-                          minWidth: 'unset',
-                          mr: isMobile ? 0.5 : 0.5,
-                          fontSize: isMobile ? 7 : 8,
-                          mt: isMobile ? 7.5 : 0
-
-                        }}>
-                        <LocationOnIcon fontSize="inherit" spacing={1}
+                      <ListItemIcon sx={{ minWidth: 'unset', mr: isMobile ? 0.5 : 0.5, mt: isMobile ? 9 : 0 }}>
+                        <LocationOnIcon fontSize="inherit"
                         />
                       </ListItemIcon>
                       <Typography variant="subtitle1" color="text.secondary"
                         sx={{
-                          fontWeight: 'bold', fontSize: isMobile ? 7 : 8, mt: isMobile ? 7.5 : 0
+                          fontWeight: 'bold', fontSize: isMobile ? 6 : 8, mt: isMobile ? 9 : 0
                         }}
                       >
                         New York, NY
@@ -236,19 +232,15 @@ const RandProfile = () => {
                         top: 'right', color: 'lightgrey'
                       }}>
                         <BookmarkIcon />
-                        <Typography variant="body2"
-                          sx={{
-                            adding: 1
-                          }}
+                        <Typography variant="body2" sx={{ padding: 1 }}
                         >Bookmark
                         </Typography>
                       </Box>
                     </Box>
-                    <Typography variant="subtitle2"
-                      sx={{
-                        fontSize: isMobile ? 8 : 12, color: '#007FFF',
-                        fontWeight: 'bold'
-                      }}
+                    <Typography variant="subtitle2" sx={{
+                      fontSize: isMobile ? 7 : 12, color: '#007FFF',
+                      fontWeight: 'bold'
+                    }}
                     >Junior Programmer
                     </Typography>
                     {/* Display Ranking */}
@@ -271,8 +263,4 @@ const RandProfile = () => {
 }
 
 
-export default RandProfile;
-
-
-
-
+export default Profile;

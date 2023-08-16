@@ -1,24 +1,41 @@
-import React, { useState } from 'react'
-import { Stack, Rating, Typography } from '@mui/material'
+import React, { useState } from 'react';
+import { Grid, Stack, Rating, Typography, useTheme, useMediaQuery } from '@mui/material';
 
 export const RandRating = () => {
-  const [value, setValue] = useState<number | null>(8.6 / 2) // initial value set to 8.6 / 2 = 4.3
+  const [value, setValue] = useState<number | null>(8.4 / 2); // initial value 
 
   const handleChange = (_event: React.ChangeEvent<{}>, newValue: number | null) => {
-    setValue(newValue)
-  }
-  return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'row',
-      paddingTop: '10px',
-      marginLeft: '100',
+    setValue(newValue);
+  };
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
-    }}>
-      <Stack spacing={2} direction="row" sx={{ ml: 50, mt: -2 }}>
-        <Typography variant="body1" sx={{ fontWeight: 'bold', fontSize: 20 }}>8.6</Typography>
-        <Rating name="simple-controlled" value={value} onChange={handleChange} precision={2} sx={{ color: '#007FFF' }} />
-      </Stack>
-    </div>
-  )
+  return (
+    <Grid container justifyContent="center">
+      <Grid item xs={12} md={10}>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'row',
+          paddingTop: '10px',
+
+        }}>
+          <Stack spacing={1} direction="row" sx={{
+            ml: isMobile ? 15.2 : 40,
+            mt: isMobile ? -2.5 : 10
+          }}>
+            <Typography variant="body1" sx={{
+              fontWeight: 'bold',
+              fontSize: isMobile ? 9 : 15,
+            }}
+            >8.6
+            </Typography>
+            <Rating name="simple-controlled" value={value} onChange={handleChange}
+              precision={0.5}
+              sx={{ color: '#007FFF', fontSize: isMobile ? 9 : 15 }} />
+          </Stack>
+        </div>
+      </Grid>
+    </Grid>
+  );
 }
+

@@ -34,7 +34,7 @@ export default function RandTaskBar() {
           sx={{
             fontFamily: 'Helvetica, Arial, sans-serif',
             ml: isMobile ? 6 : 5,
-            mt: isMobile ? -17 : 30
+            mt: isMobile ? -10 : 30
           }}>
 
           <Box
@@ -46,7 +46,7 @@ export default function RandTaskBar() {
               mt: isMobile ? 50 : 20
             }}>
             <ChatBubbleTwoToneIcon
-              sx={{//send message icon//
+              sx={{
                 marginRight: isMobile ? 1 : 1,
                 fontSize: isMobile ? 12 : 18
               }} />
@@ -60,7 +60,7 @@ export default function RandTaskBar() {
           </Box>
 
           <Box
-            sx={{//taskBar menu Background//
+            sx={{
               mt: isMobile ? -4 : -4.5,
               ml: isMobile ? 11 : 5,
               display: 'flex',
@@ -81,7 +81,7 @@ export default function RandTaskBar() {
               }}
             >
               <CheckTwoToneIcon
-                sx={{//message icon//
+                sx={{
                   marginRight: isMobile ? 1 : 1,
                   fontSize: isMobile ? 12 : 16,
                   mt: isMobile ? 0 : -0
@@ -90,7 +90,7 @@ export default function RandTaskBar() {
               <Typography
                 variant="body2"
                 component="div"
-                sx={{//message menu
+                sx={{
                   fontSize: isMobile ? 8 : 12,
                   ml: isMobile ? -0.5 : -0.5,
                   mt: isMobile ? 0.2 : 0.4,
@@ -104,7 +104,7 @@ export default function RandTaskBar() {
             <Typography
               variant="body2"
               component="div"
-              sx={{//report user menu//
+              sx={{
                 fontSize: isMobile ? 8 : 12,
                 ml: isMobile ? 4 : 2,
                 mt: isMobile ? 0.2 : 0.1,
@@ -118,13 +118,12 @@ export default function RandTaskBar() {
 
           {messageBoxVisible && (
             <Box
-              sx={{//message box
+              sx={{
                 marginTop: 3,
                 borderRadius: '10px',
                 padding: isMobile ? 1 : 2,
                 width: isMobile ? '250px' : '500px',
-                margin: '20px auto',
-
+                margin: '20px auto'
               }}
             >
               <Typography
@@ -142,7 +141,7 @@ export default function RandTaskBar() {
 
           {contactInfoVisible &&
             <Box
-              sx={{//contact information when clicked//
+              sx={{
                 marginTop: 3, borderRadius: '10px',
                 padding: isMobile ? 0.2 : 2,
                 width: isMobile ? '250PX' : '500px',
@@ -160,12 +159,12 @@ export default function RandTaskBar() {
                 }}>
                 <Tab label={<Stack direction="row" spacing={isMobile ? 0.5 : 1} alignItems="center">
                   <VisibilityIcon
-                    sx={{//timeline icon
+                    sx={{
                       fontSize: isMobile ? 10 : 15
                     }}
                   />
                   <Typography
-                    sx={{//timeline menu
+                    sx={{
                       fontSize: isMobile ? 6 : 12
 
                     }}
@@ -175,12 +174,12 @@ export default function RandTaskBar() {
                 <Tab label={<Stack direction="row" spacing={isMobile ? 0.5 : 1} alignItems="center">
 
                   <PersonIcon
-                    sx={{//About icon
+                    sx={{
                       fontSize: isMobile ? 10 : 15
                     }}
                   />
                   <Typography
-                    sx={{//about menu
+                    sx={{
                       fontSize: isMobile ? 6 : 12
 
                     }}
@@ -189,7 +188,7 @@ export default function RandTaskBar() {
                 </Stack>} value="about" />
               </Tabs>
               <Divider flexItem
-                sx={{//show timeline and About when clicked, and call RandTimeline//
+                sx={{
                   width: isMobile ? 300 : 750, height: 2,
                   mt: -0.5, mb: 1, ml: 2
                 }} />
@@ -201,7 +200,7 @@ export default function RandTaskBar() {
                     marginTop: 3, fontSize: 12
                   }}>
                   <Typography variant="body2" component="div"
-                    sx={{//contact information menu
+                    sx={{
                       marginBottom: 2, color: 'grey',
                       textAlign: 'left', fontSize: isMobile ? 8 : 12,
                       ml: isMobile ? 2 : 2
