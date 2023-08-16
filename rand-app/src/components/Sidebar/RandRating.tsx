@@ -20,8 +20,8 @@ export const RandRating = () => {
 
         }}>
           <Stack spacing={1} direction="row" sx={{
-            ml: isMobile ? 15.2 : 40,
-            mt: isMobile ? -2.5 : 10
+            ml: isMobile ? 15.2 : 24,
+            mt: isMobile ? -2.5 : -5
           }}>
             <Typography variant="body1" sx={{
               fontWeight: 'bold',

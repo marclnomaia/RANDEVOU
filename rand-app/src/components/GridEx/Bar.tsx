@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -17,8 +17,7 @@ import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
 import logoImage from '../images/logo.png';
 import ProfileImage from '../images/profile_picture.jpg';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import { useState } from 'react';
-import { Grid, useMediaQuery, useTheme } from '@mui/material';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,7 +51,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
 }));
-
+//Search Box//
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'black',
   '& .MuiInputBase-input': {
@@ -129,7 +128,7 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
-  //mobile menu//
+  //mobile menu inside 3 dots//
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
@@ -181,137 +180,153 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+  //message notification number 4 and background//
+  const NotificationBadge = styled('div')({
+    backgroundColor: 'lightblue',
+    color: 'blue',
+    borderRadius: '2px',
+    padding: '2px 8px',
+    fontSize: '12px',
+    marginLeft: '0px',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  });
+
+
 
   return (
-    <Grid container justifyContent="center">
-      <Grid item xs={12} md={6}>
-        <Box sx={{ flexGrow: 1, fontFamily: 'Helvetica, Arial, sans-serif', fontSize: '14' }}>
-          <AppBar position="static" sx={{
-            backgroundColor: 'transparent',
-            boxShadow: 'none', borderBottom: '1px solid #D3D3D3'
-          }}>
-            <Toolbar>
-              <LogoImage src={logoImage} alt="Logo" style={{ margin: '15px' }} />
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{
-                  display: { xs: 'none', sm: 'block' },
-                  letterSpacing: '.3rem',
+
+    <Box sx={{ flexGrow: 1, fontFamily: 'Helvetica, Arial, sans-serif', fontSize: '14' }}>
+      <AppBar position="static" sx={{
+        backgroundColor: 'transparent',
+        boxShadow: 'none', borderBottom: '1px solid #D3D3D3'
+      }}>
+        <Toolbar>
+          <LogoImage src={logoImage} alt="Logo" style={{ margin: '15px' }} />
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{
+              display: { xs: 'none', sm: 'block' },
+              letterSpacing: '.3rem',
+              color: 'black',
+              textDecoration: 'none',
+              alignItems: 'center',
+              marginLeft: '20px',
+              fontSize: '22px',
+              fontFamily: 'Helvetica, Arial, sans-serif'
+            }}>
+            Randevou
+          </Typography>
+
+          <Search>
+            <SearchIconWrapper sx={{ color: 'grey' }}>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search', color: 'black' }}
+            />
+          </Search>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <IconButton onClick={handleClick}>
+              <Badge>
+                <Typography style={{
                   color: 'black',
-                  textDecoration: 'none',
-                  alignItems: 'center',
-                  marginLeft: isMobile ? '5px' : '10px',
-                  fontSize: isMobile ? '10px' : '22px',
-                  fontFamily: 'Helvetica, Arial, sans-serif'
+                  margin: '10px',
+                  fontSize: '16px',
+                  fontFamily: 'Helvetica, Arial, sans-serif',
+                  marginTop: '10px',
+                  marginRight: '20px'
                 }}>
-                Randevou
+                  Find people
+                </Typography>
+              </Badge>
+            </IconButton>
+            {showOptions && (
+              <div style={{
+                border: '1px solid #ccc',
+                width: '100%',
+                padding: '10px',
+                backgroundColor: '#f9f9f9',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                position: 'fixed',
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
+                marginTop: '20px'
+
+              }}>
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <br />
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              </div>
+            )}
+            <IconButton size="large" aria-label="show 4 new mails" color="info">
+              <Typography style={{
+                color: 'black', marginRight: '10px', fontSize: '16px',
+                fontFamily: 'Helvetica, Arial, sans-serif', display: 'inline'
+              }}>
+                Messages
               </Typography>
+              <NotificationBadge>
+                4
+              </NotificationBadge>
+            </IconButton>
+            <IconButton>
+              <Badge>
+                <Typography style={{
+                  color: 'black', margin: '10px', fontSize: '16px',
+                  fontFamily: 'Helvetica, Arial, sans-serif'
+                }}>My contact</Typography>
+              </Badge>
+            </IconButton>
+            <IconButton style={{ marginRight: '60px', position: 'relative' }} onClick={handleProfileMenuOpen}>
+              <img src={ProfileImage} alt="Profile" style={{
+                borderRadius: '100%', height: '60px',
+                width: '60px', objectFit: 'cover'
+              }} />
+              <div style={{
+                position: 'absolute',
+                top: 6,
+                right: 7,
+                height: '18px',
+                width: '18px',
+                borderRadius: '50%',
+                boxShadow: '0 0 0 2px white',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <FiberManualRecordIcon style={{
+                  color: 'green',
+                  height: '24px',
+                  width: '24px'
+                }} />
+              </div>
+            </IconButton>
+          </Box>
+          {/*3 dots mobile config*/}
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="show more"
+              aria-controls={mobileMenuId}
+              aria-haspopup="true"
+              onClick={handleMobileMenuOpen}
+            >
+              <MoreIcon style={{ color: 'black' }} />
+            </IconButton>
 
-              <Search>
-                <SearchIconWrapper sx={{ color: 'grey' }}>
-                  <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Search…"
-                  inputProps={{ 'aria-label': 'search', color: 'black' }}
-                />
-              </Search>
-              <Box sx={{ flexGrow: 1 }} />
-              <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                <IconButton onClick={handleClick}>
-                  <Badge>
-                    <Typography style={{
-                      color: 'black', margin: '10px', fontSize: '16px',
-                      fontFamily: 'Helvetica, Arial, sans-serif', marginTop: '18px', marginRight: '20px'
-                    }}>
-                      Find people
-                    </Typography>
-                  </Badge>
-                </IconButton>
-                {showOptions && (
-                  <div style={{
-                    border: '1px solid #ccc',
-                    width: '100%',
-                    padding: '10px',
-                    backgroundColor: '#f9f9f9',
-                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                    position: 'fixed',
-                    left: '50%',
-                    top: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    marginTop: '20px'
+          </Box>
+        </Toolbar>
+      </AppBar>
+      {renderMobileMenu}
+      {renderMenu}
+    </Box>
 
-                  }}>
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-                    <br />
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                  </div>
-                )}
-
-                <IconButton size="large" aria-label="show 4 new mails" color="info">
-                  <Typography style={{
-                    color: 'black', margin: '10px', fontSize: '16px',
-                    fontFamily: 'Helvetica, Arial, sans-serif'
-                  }}>
-                    Messages
-                  </Typography>
-                </IconButton>
-                <IconButton>
-                  <Badge>
-                    <Typography style={{
-                      color: 'black', margin: '10px', fontSize: '16px',
-                      fontFamily: 'Helvetica, Arial, sans-serif'
-                    }}>My contact</Typography>
-                  </Badge>
-                </IconButton>
-                <IconButton style={{ marginRight: '60px', position: 'relative' }} onClick={handleProfileMenuOpen}>
-                  <img src={ProfileImage} alt="Profile" style={{
-                    borderRadius: '100%', height: '60px',
-                    width: '60px', objectFit: 'cover'
-                  }} />
-                  <div style={{
-                    position: 'absolute',
-                    top: 6,
-                    right: 7,
-                    height: '18px',
-                    width: '18px',
-                    borderRadius: '50%',
-                    boxShadow: '0 0 0 2px white',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}>
-                    <FiberManualRecordIcon style={{
-                      color: 'green',
-                      height: '24px',
-                      width: '24px'
-                    }} />
-                  </div>
-                </IconButton>
-              </Box>
-              {/*3 dots mobile config*/}
-              <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                <IconButton
-                  size="large"
-                  aria-label="show more"
-                  aria-controls={mobileMenuId}
-                  aria-haspopup="true"
-                  onClick={handleMobileMenuOpen}
-                >
-                  <MoreIcon style={{ color: 'black' }} />
-                </IconButton>
-
-              </Box>
-            </Toolbar>
-          </AppBar>
-          {renderMobileMenu}
-          {renderMenu}
-        </Box>
-      </Grid>
-    </Grid>
   );
 }

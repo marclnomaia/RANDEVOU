@@ -34,7 +34,7 @@ export default function RandTaskBar() {
           sx={{
             fontFamily: 'Helvetica, Arial, sans-serif',
             ml: isMobile ? 6 : 5,
-            mt: isMobile ? -17 : 30
+            mt: isMobile ? -17 : -20
           }}>
 
           <Box

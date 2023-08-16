@@ -7,21 +7,21 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import imageSrc from '../images/main_picture.jpg';
 
-
+//isMobile hook
 const RandProfile = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
   return (
     <div style={{
-      fontSize: isMobile ? '2px' : '12px',  // adjust font size based on the screen size
-      padding: isMobile ? '2px' : '20px'    // adjust padding based on the screen size
+      fontSize: isMobile ? '2px' : '12px',
+      padding: isMobile ? '2px' : '20px'
     }}>
-      <Grid container spacing={isMobile ? 1 : 2} justifyContent="left" mt={isMobile ? 4 : 8}>
+      <Grid container spacing={isMobile ? 1 : 2} justifyContent="left" mt={isMobile ? 4 : 10}>
         <Grid item xs={12} md={6} lg={4}>
           <Box
             sx={{
-              ml: isMobile ? 3 : 15, mt: isMobile ? 8 : 13, width: isMobile ? '75%' : 170,
+              ml: isMobile ? 3 : 5, mt: isMobile ? 8 : 0, width: isMobile ? '75%' : 170,
               fontFamily: 'Helvetica, Arial, sans-serif'
             }}>
 
@@ -192,6 +192,7 @@ const RandProfile = () => {
                 </ListItem>
               </List>
             </Box>
+
             {/* Display name */}
             <Box
               sx={{
@@ -232,7 +233,7 @@ const RandProfile = () => {
                         New York, NY
                       </Typography>
                       <Box sx={{
-                        ml: 85, mt: 7, position: 'absolute', display: 'flex', alignItems: 'center',
+                        ml: isMobile ? 80 : 105, mt: isMobile ? 0 : 0, position: 'absolute', display: 'flex', alignItems: 'center',
                         top: 'right', color: 'lightgrey'
                       }}>
                         <BookmarkIcon />
@@ -255,7 +256,7 @@ const RandProfile = () => {
                     <Typography variant="subtitle1"
                       sx={{
                         fontSize: isMobile ? 7 : 12, color: '#ccc',
-                        fontWeight: 'bold', mt: isMobile ? 1 : 3, ml: 0
+                        fontWeight: 'bold', mt: isMobile ? 1 : 1, ml: 0
                       }}
                     >Rankings
                     </Typography>

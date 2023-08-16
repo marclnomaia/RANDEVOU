@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -17,7 +17,7 @@ import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
 import logoImage from '../images/logo.png';
 import ProfileImage from '../images/profile_picture.jpg';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import { useState } from 'react';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -30,14 +30,16 @@ const Search = styled('div')(({ theme }) => ({
   marginRight: theme.spacing(2),
   marginLeft: theme.spacing(5),
   width: '100%',
-  [theme.breakpoints.down('sm')]: {
-    width: '100%',
+  [theme.breakpoints.up('xs')]: {
+    marginLeft: theme.spacing(1),
+    width: '45%',
   },
+
   [theme.breakpoints.up('md')]: {
     width: '50%',
   },
   [theme.breakpoints.up('lg')]: {
-    width: '30%',
+    width: '20%',
 
   },
 }));
@@ -51,7 +53,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
 }));
-
+//Search Box//
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'black',
   '& .MuiInputBase-input': {
@@ -60,6 +62,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     maxWidth: '100%',
+    [theme.breakpoints.up('xs')]: {
+      width: '15ch',
+      marginLeft: 0
+    },
     [theme.breakpoints.up('md')]: {
       width: '50ch',
     },
@@ -93,6 +99,9 @@ export default function PrimarySearchAppBar() {
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+
+
 
   //image logo//
   const LogoImage = styled('img')({
@@ -128,7 +137,7 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
-  //mobile menu//
+  //mobile menu inside 3 dots//
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
@@ -180,15 +189,43 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
+  //message notification number 4 and background//
+  const NotificationBadge = styled('div')({
+    backgroundColor: 'lightblue',
+    color: 'blue',
+    borderRadius: '2px',
+    padding: '2px 8px',
+    fontSize: '12px',
+    marginLeft: '0px',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  });
+
+
 
   return (
-    <Box sx={{ flexGrow: 1, fontFamily: 'Helvetica, Arial, sans-serif', fontSize: '14' }}>
-      <AppBar position="static" sx={{
-        backgroundColor: 'transparent',
-        boxShadow: 'none', borderBottom: '1px solid #D3D3D3'
+
+    <Box
+      sx={{
+        flexGrow: 1,
+        fontFamily: 'Helvetica, Arial, sans-serif',
+        fontSize: '14'
       }}>
+      <AppBar position="static"
+        sx={{
+          backgroundColor: 'transparent',
+          boxShadow: 'none',
+          borderBottom: '1px solid #D3D3D3'
+        }}>
         <Toolbar>
-          <LogoImage src={logoImage} alt="Logo" style={{ margin: '15px' }} />
+          <LogoImage
+            src={logoImage}
+            alt="Logo"
+            style={{
+
+              marginLeft: '20px'
+            }} />
           <Typography
             variant="h6"
             noWrap
@@ -207,7 +244,10 @@ export default function PrimarySearchAppBar() {
           </Typography>
 
           <Search>
-            <SearchIconWrapper sx={{ color: 'grey' }}>
+            <SearchIconWrapper
+              sx={{
+                color: 'grey'
+              }}>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
@@ -215,63 +255,88 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search', color: 'black' }}
             />
           </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box
+            sx={{
+              flexGrow: 1
+            }} />
+          <Box
+            sx={{//navBar menu//
+              display: { xs: 'none', md: 'flex' }
+            }}>
             <IconButton onClick={handleClick}>
               <Badge>
                 <Typography style={{
-                  color: 'black', margin: '10px', fontSize: '16px',
-                  fontFamily: 'Helvetica, Arial, sans-serif', marginTop: '18px', marginRight: '20px'
+                  color: 'black',
+                  margin: '10px',
+                  fontSize: '16px',
+                  fontFamily: 'Helvetica, Arial, sans-serif',
+                  marginTop: '10px',
+                  marginRight: '20px'
                 }}>
                   Find people
                 </Typography>
               </Badge>
             </IconButton>
             {showOptions && (
-              <div style={{
-                border: '1px solid #ccc',
-                width: '100%',
-                padding: '10px',
-                backgroundColor: '#f9f9f9',
-                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                position: 'fixed',
-                left: '50%',
-                top: '50%',
-                transform: 'translate(-50%, -50%)',
-                marginTop: '20px'
+              <div
+                style={{
+                  border: '1px solid #ccc',
+                  width: '100%',
+                  padding: '10px',
+                  backgroundColor: '#f9f9f9',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                  position: 'fixed',
+                  left: '50%',
+                  top: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  marginTop: '20px'
 
-              }}>
+                }}>
                 <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
                 <br />
                 <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </div>
             )}
-
             <IconButton size="large" aria-label="show 4 new mails" color="info">
               <Typography style={{
-                color: 'black', margin: '10px', fontSize: '16px',
-                fontFamily: 'Helvetica, Arial, sans-serif'
+                color: 'black', marginRight: '10px', fontSize: '16px',
+                fontFamily: 'Helvetica, Arial, sans-serif', display: 'inline'
               }}>
                 Messages
               </Typography>
+              <NotificationBadge>
+                4
+              </NotificationBadge>
             </IconButton>
             <IconButton>
               <Badge>
-                <Typography style={{
-                  color: 'black', margin: '10px', fontSize: '16px',
-                  fontFamily: 'Helvetica, Arial, sans-serif'
-                }}>My contact</Typography>
+                <Typography
+                  style={{
+                    color: 'black', margin: '10px', fontSize: '16px',
+                    fontFamily: 'Helvetica, Arial, sans-serif'
+                  }}
+                >My contact
+                </Typography>
               </Badge>
             </IconButton>
-            <IconButton style={{ marginRight: '60px', position: 'relative' }} onClick={handleProfileMenuOpen}>
-              <img src={ProfileImage} alt="Profile" style={{
-                borderRadius: '100%', height: '60px',
-                width: '60px', objectFit: 'cover'
-              }} />
+            <IconButton
+              style={{
+                marginRight: '60px', position: 'relative'
+              }}
+              onClick={handleProfileMenuOpen}>
+              <img
+                src={ProfileImage} alt="Profile"
+                style={{
+                  borderRadius: '100%',
+                  height: '60px',
+                  width: '60px',
+                  marginRight: '-30px',
+                  objectFit: 'cover'
+                }} />
               <div style={{
                 position: 'absolute',
                 top: 6,
-                right: 7,
+                right: -25,
                 height: '18px',
                 width: '18px',
                 borderRadius: '50%',
@@ -289,7 +354,11 @@ export default function PrimarySearchAppBar() {
             </IconButton>
           </Box>
           {/*3 dots mobile config*/}
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <Box
+            sx={{
+              display: { xs: 'flex', md: 'none' },
+              marginRight: '70px'
+            }}>
             <IconButton
               size="large"
               aria-label="show more"
@@ -299,12 +368,12 @@ export default function PrimarySearchAppBar() {
             >
               <MoreIcon style={{ color: 'black' }} />
             </IconButton>
-
           </Box>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
     </Box>
+
   );
 }
