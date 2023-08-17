@@ -18,6 +18,7 @@ import logoImage from '../images/logo.png';
 import ProfileImage from '../images/profile_picture.jpg';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
+//NavBar start here
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -43,7 +44,7 @@ const Search = styled('div')(({ theme }) => ({
 
   },
 }));
-
+//inside search box
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: '100%',
@@ -74,7 +75,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-
+//main function
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -97,10 +98,9 @@ export default function PrimarySearchAppBar() {
   };
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    console.log("Mobile menu clicked");
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
-
 
 
   //image logo//
@@ -355,6 +355,7 @@ export default function PrimarySearchAppBar() {
           </Box>
           {/*3 dots mobile config*/}
           <Box
+
             sx={{
               display: { xs: 'flex', md: 'none' },
               marginRight: '70px'
