@@ -2,10 +2,13 @@
 
 
 import './App.css';
-import RandBar from './components/NavBar/RandBar';
+import RandNavBar from './components/NavBar/RandNavBar';
+//import NavBar from './components/GridEx/NavBar';
+//import RandNavBar from './components/NavBar/RandBar';
 import RandProfile from './components/Profile/RandProfile';
-import { RandRating } from './components/Sidebar/RandRating';
+import RandRating from './components/Sidebar/RandRating';
 import RandTaskBar from './components/Taskbar/RandTaskBar';
+
 //import Bar from './components/GridEx/Bar';
 //import TaskBar from './components/GridEx/TaskBar';
 //import Profile from './components/GridEx/profile';
@@ -17,18 +20,18 @@ function App() {
   return (
     <div className="App">
 
-      <RandBar />
+      <RandNavBar />
       <RandProfile />
       <RandRating />
       <RandTaskBar />
       {/* 
       <Profile />
       <TaskBar />
-       <RandNav />
+       <RandNavBar />
       <GridTest1 />
       <GridScratch />
-      <Bar />*/}
-
+      <Bar />
+      <NavBar />*/}
 
     </div>
 

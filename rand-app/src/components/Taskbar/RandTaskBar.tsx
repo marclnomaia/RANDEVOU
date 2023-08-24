@@ -15,7 +15,9 @@ import { Divider, Grid, useMediaQuery, useTheme } from '@mui/material';
 import RandTimeline from '../Sidebar/RandTimeline';
 
 
-export default function RandTaskBar() {
+const RandTaskBar: React.FC = () => {
+
+
   const [messageBoxVisible, setMessageBoxVisible] = useState(false);
   const [contactInfoVisible, setContactInfoVisible] = useState(false);
   const [tabValue, setTabValue] = useState('timeline');
@@ -33,7 +35,7 @@ export default function RandTaskBar() {
         <Box
           sx={{
             fontFamily: 'Helvetica, Arial, sans-serif',
-            ml: isMobile ? 6 : 5,
+            ml: isMobile ? 6 : 0,
             mt: isMobile ? -17 : -20
           }}>
 
@@ -52,7 +54,8 @@ export default function RandTaskBar() {
               }} />
             <Typography variant="body2" component="div"
               sx={{
-                fontSize: isMobile ? 10 : 12
+                fontSize: isMobile ? 10 : 12,
+
               }}
               onClick={() => setMessageBoxVisible(!messageBoxVisible)}
             > Send message
@@ -355,3 +358,4 @@ export default function RandTaskBar() {
     </Grid>
   );
 }
+export default RandTaskBar;

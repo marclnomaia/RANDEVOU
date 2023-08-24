@@ -9,7 +9,7 @@ import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 import { Grid, useMediaQuery, useTheme } from '@mui/material';
 
 
-export default function RandTimeline() {
+const RandTimeline: React.FC = () => {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
@@ -103,3 +103,4 @@ export default function RandTimeline() {
     </Grid>
   );
 }
+export default RandTimeline;

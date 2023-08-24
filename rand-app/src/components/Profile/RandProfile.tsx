@@ -8,7 +8,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 import imageSrc from '../images/main_picture.jpg';
 
 //isMobile hook
-const RandProfile = () => {
+const RandProfile: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
@@ -233,12 +233,21 @@ const RandProfile = () => {
                         New York, NY
                       </Typography>
                       <Box sx={{
-                        ml: isMobile ? 80 : 105, mt: isMobile ? 0 : 0, position: 'absolute', display: 'flex', alignItems: 'center',
-                        top: 'right', color: 'lightgrey'
+                        ml: isMobile ? 12 : 125,
+                        mt: isMobile ? 11 : 0,
+                        position: 'absolute', display: 'flex',
+                        alignItems: 'center',
+                        top: 'right',
+                        color: 'lightgrey'
                       }}>
-                        <BookmarkIcon />
+                        <BookmarkIcon
+                          sx={{
+                            fontSize: isMobile ? 8 : 16
+                          }}
+                        />
                         <Typography variant="body2"
                           sx={{
+                            fontSize: isMobile ? 8 : 16,
                             adding: 1
                           }}
                         >Bookmark
