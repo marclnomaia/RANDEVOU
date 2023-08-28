@@ -49,6 +49,7 @@ const RandNavBar: React.FC = () => {
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMobileMenuOpen}
       onClose={handleMenuClose}
+      sx={{ zIndex: 1301 }}  // Set a high z-index value to make it appear on top
     >
       <MenuItem onClick={handleMenuClose} sx={{ fontSize: '14px' }}>
         <PeopleOutlineIcon sx={{ marginRight: 2 }} /> Find people
@@ -87,8 +88,8 @@ const RandNavBar: React.FC = () => {
       <AppBar position="static" color="default" sx={{ backgroundColor: 'white', boxShadow: 'none' }}>
         <Toolbar>
           <Grid container alignItems="center">
-            <Grid item xs={2} md={1} sx={{ padding: 2, ml: isMobile ? '-10px' : '20px' }}>
-              <img src={logoImage} alt="Randevou" height={isMobile ? "25px" : "40px"} />
+            <Grid item xs={2} md={1} sx={{ padding: 2, ml: isMobile ? '-30px' : '20px' }}>
+              <img src={logoImage} alt="Randevou" height={isMobile ? "30px" : "40px"} />
             </Grid>
             <Grid item xs={3} md={2} sx={{ padding: 2, ml: isMobile ? '-10px' : '-80px' }}>
               <Typography variant="h6" noWrap sx={{ fontSize: isMobile ? '11px' : '30px' }}>
@@ -96,7 +97,7 @@ const RandNavBar: React.FC = () => {
               </Typography>
             </Grid>
             <Grid   ////Search Box////
-              item xs={4} md={4} sx={{ padding: 2, ml: isMobile ? '50px' : '-110px' }}>
+              item xs={4} md={4} sx={{ padding: 2, ml: isMobile ? '60px' : '-110px' }}>
               <InputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
@@ -149,6 +150,7 @@ const RandNavBar: React.FC = () => {
                         color: 'blue',
                         mr: isMobile ? 2 : 2,
                         mt: isMobile ? 1 : 1,
+
                         borderRadius: '0',
                         width: 'auto',
                         padding: '0 6px',
@@ -173,7 +175,7 @@ const RandNavBar: React.FC = () => {
                     My Contact
                   </Typography>
                 </Grid>
-                <Grid //Picture profile and menu=3//
+                <Grid //Picture profile and menu//
                   item sx={{ padding: 2 }}>
                   <Box sx={{ position: 'relative' }}>
                     <IconButton
@@ -183,7 +185,6 @@ const RandNavBar: React.FC = () => {
                       aria-haspopup="true"
                       onClick={handleProfileMenuOpen}
                       color="inherit"
-
                     >
                       <img
                         src={ProfileImage}

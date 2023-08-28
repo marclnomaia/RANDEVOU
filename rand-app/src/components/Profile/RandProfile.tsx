@@ -18,7 +18,7 @@ const RandProfile: React.FC = () => {
       padding: isMobile ? '2px' : '20px'
     }}>
       <Grid container spacing={isMobile ? 1 : 2} justifyContent="left" mt={isMobile ? 4 : 10}>
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid item xs={12} md={6} lg={4} mt={3}>
           <Box
             sx={{
               ml: isMobile ? 3 : 5, mt: isMobile ? 8 : 0, width: isMobile ? '75%' : 170,

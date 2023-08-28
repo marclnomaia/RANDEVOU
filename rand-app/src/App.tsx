@@ -3,12 +3,12 @@
 
 import './App.css';
 import RandNavBar from './components/NavBar/RandNavBar';
-//import NavBar from './components/GridEx/NavBar';
-//import RandNavBar from './components/NavBar/RandBar';
 import RandProfile from './components/Profile/RandProfile';
 import RandRating from './components/Sidebar/RandRating';
 import RandTaskBar from './components/Taskbar/RandTaskBar';
 
+
+//import NavBar from './components/GridEx/NavBar';
 //import Bar from './components/GridEx/Bar';
 //import TaskBar from './components/GridEx/TaskBar';
 //import Profile from './components/GridEx/profile';
@@ -24,7 +24,7 @@ function App() {
       <RandProfile />
       <RandRating />
       <RandTaskBar />
-      {/* 
+      {/*}
       <Profile />
       <TaskBar />
        <RandNavBar />
