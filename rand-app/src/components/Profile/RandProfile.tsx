@@ -12,7 +12,7 @@ const RandProfile: React.FC = () => {
   return (
     <div style={{ padding: '60px' }}>
       <Grid container spacing={2} justifyContent="left" >
-        <Grid item xs={12} sm={2} md={4} lg={10}
+        <Grid item xs={4} sm={2} md={4} lg={10}
           sx={{ mt: 2 }}
         >
           <Avatar
@@ -29,7 +29,7 @@ const RandProfile: React.FC = () => {
       </Grid>
 
       {/* Work menu */}
-      <Grid container item xs={12} sm={2} md={3} lg={10}
+      <Grid container item xs={4} sm={2} md={3} lg={10}
         sx={{
           display: 'flex',
           alignItems: 'center',
@@ -57,7 +57,7 @@ const RandProfile: React.FC = () => {
           }}
         />
       </Grid>
-      <Grid container item xs={12} sm={2} md={3} lg={10}
+      <Grid container item xs={4} sm={2} md={3} lg={10}
         sx={{
           width: '100%',
           display: 'flex',
@@ -111,7 +111,7 @@ const RandProfile: React.FC = () => {
       </Grid>
 
 
-      <Grid container item xs={12} sm={2} md={3} lg={10}
+      <Grid container item xs={4} sm={2} md={3} lg={10}
         sx={{
           width: '100%',
           display: 'flex',
@@ -171,7 +171,7 @@ const RandProfile: React.FC = () => {
       </Grid>
       {/*Skills*/}
       <Grid container spacing={2} justifyContent="left" mt={10}>
-        <Grid item xs={12} sm={2} md={3} lg={10}
+        <Grid item xs={4} sm={2} md={3} lg={10}
 
           sx={{
             width: 180,
@@ -187,7 +187,7 @@ const RandProfile: React.FC = () => {
             }}>
             Skills
           </Typography>
-          <Grid item xs={12} sm={2} md={3} lg={10}>
+          <Grid item xs={4} sm={2} md={3} lg={10}>
             <Divider flexItem
               sx={{
                 width: '200px',
