@@ -11,174 +11,191 @@ const RandProfile: React.FC = () => {
 
   return (
     <div style={{ padding: '60px' }}>
-      <Grid container spacing={2} justifyContent="left" >
-        <Grid item xs={4} sm={2} md={4} lg={10}
-          sx={{ mt: 2 }}
+      <Grid container spacing={2} justifyContent="left" flexDirection="column" alignItems="flex-start" >
+        <Grid item xs={12} sm={6} md={6} lg={8}
+          sx={{
+            mt: 7,
+            width: '100%',
+            height: '100%',
+            padding: 0
+          }}
         >
           <Avatar
             src={imageSrc}
             alt="Profile"
             sx={{
+
+              borderRadius: 0,
               width: '100%',
               height: '100%',
-              borderRadius: 0,
-              display: 'flex'
+              flexWrap: 'wrap',
             }}
           />
         </Grid>
-      </Grid>
 
-      {/* Work menu */}
-      <Grid container item xs={4} sm={2} md={3} lg={10}
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          mt: 2,
-          flexWrap: 'wrap',
-          flexDirection: 'row'
-        }}
-      >
-        <Typography variant="body1"
+
+        {/* Work menu */}
+
+        <Grid item xs={8} sm={12} md={12} lg={8}
           sx={{
-            fontSize: 12,
-            color: '#ccc',
-            mt: 1
+            display: 'flex',
+            alignItems: 'center',
+            mt: 1,
+            flexWrap: 'wrap',
+            flexDirection: 'row'
           }}
         >
-          Work
-        </Typography>
-        <Divider flexItem
-          sx={{
-            width: '85%',
-            height: '1px',
-            mt: -1,
-            ml: 4
-
-          }}
-        />
-      </Grid>
-      <Grid container item xs={4} sm={2} md={3} lg={10}
-        sx={{
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          mt: 2,
-          flexWrap: 'wrap'
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'nowrap' }}>
           <Typography variant="body1"
             sx={{
-              fontSize: 14,
-              fontWeight: 'bold',
+              fontSize: 12,
+              color: '#ccc',
+              mt: 1
             }}
           >
-            Spotify New York
+            Work
           </Typography>
-          <Chip label="Primary" variant="outlined"
+        </Grid>
+        <Grid item xs={8} sm={12} md={12} lg={8}>
+          <Divider flexItem
             sx={{
-              width: 'auto',
+              width: {
+                xs: '140px',
+                sm: '155px',
+                md: '155px',
+                lg: '220px'
+              },
               height: 'auto',
-              borderRadius: '1px',
-              fontSize: 11,
-              background: 'lightblue',
-              color: '#007FFF',
-              fontWeight: 'bold',
-              ml: 1,
-              mt: -1
+              mt: -2.7,
+              ml: 4,
+              flexWrap: 'nowrap'
             }}
           />
-        </div>
-
-
-        <Typography variant="body1"
+        </Grid>
+        <Grid item xs={8} sm={12} md={12} lg={8}
           sx={{
-            fontSize: 12,
-            color: 'grey'
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            mt: -2,
+            flexWrap: 'wrap'
           }}
         >
-          170 William Street
-        </Typography>
-        <Typography variant="body1"
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center', flexWrap: 'nowrap'
+            }}>
+            <Typography variant="body1"
+              sx={{
+                fontSize: 14,
+                fontWeight: 'bold',
+              }}
+            >
+              Spotify New York
+            </Typography>
+            <Chip label="Primary" variant="outlined"
+              sx={{
+                width: 'auto',
+                height: 'auto',
+                borderRadius: '1px',
+                fontSize: 11,
+                background: 'lightblue',
+                color: '#007FFF',
+                fontWeight: 'bold',
+                ml: 1,
+                mt: -1
+              }}
+            />
+          </div>
+
+
+          <Typography variant="body1"
+            sx={{
+              fontSize: 12,
+              color: 'grey'
+            }}
+          >
+            170 William Street
+          </Typography>
+          <Typography variant="body1"
+            sx={{
+              fontSize: 12,
+              color: 'grey'
+            }}
+          >
+            New York, NY 10038-78 212-312-51
+          </Typography>
+        </Grid>
+        <Grid item xs={8} sm={12} md={12} lg={8}
           sx={{
-            fontSize: 12,
-            color: 'grey'
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            mt: 5
           }}
         >
-          New York, NY 10038-78 212-312-51
-        </Typography>
-      </Grid>
+          <div style={{ display: 'flex', alignItems: 'left' }}>
+            <Typography variant="body1"
+              sx={{
+                fontSize: 14,
+                fontWeight: 'bold',
+                mt: -2
+              }}
+            >
+              Metropolitan
+            </Typography>
 
-
-      <Grid container item xs={4} sm={2} md={3} lg={10}
-        sx={{
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          mt: 5
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'left' }}>
+            <Chip label="Secondary" variant="outlined"
+              sx={{
+                width: 'auto',
+                height: '100%',
+                borderRadius: '1px',
+                fontSize: 11,
+                background: 'lightblue',
+                color: '#007FFF',
+                fontWeight: 'bold',
+                marginLeft: '16px',
+                mt: -2
+              }}
+            />
+          </div>
           <Typography variant="body1"
             sx={{
               fontSize: 14,
               fontWeight: 'bold',
-              mt: -2
+            }}
+          >Museum
+          </Typography>
+          <Typography variant="body1"
+            sx={{
+              fontSize: 12,
+              color: 'grey'
             }}
           >
-            Metropolitan
+            525 E 68th Street
           </Typography>
-
-          <Chip label="Secondary" variant="outlined"
+          <Typography variant="body1"
             sx={{
-              width: 'auto',
-              height: '20%',
-              borderRadius: '1px',
-              fontSize: 11,
-              background: 'lightblue',
-              color: '#007FFF',
-              fontWeight: 'bold',
-              marginLeft: '16px',
-              mt: -2
+              fontSize: 12,
+              color: 'grey'
             }}
-          />
-        </div>
-        <Typography variant="body1"
-          sx={{
-            fontSize: 14,
-            fontWeight: 'bold',
-          }}
-        >Museum
-        </Typography>
-        <Typography variant="body1"
-          sx={{
-            fontSize: 12,
-            color: 'grey'
-          }}
-        >
-          525 E 68th Street
-        </Typography>
-        <Typography variant="body1"
-          sx={{
-            fontSize: 12,
-            color: 'grey'
-          }}
-        >
-          New York,NY 10651-78 156-187-60
-        </Typography>
-      </Grid>
-      {/*Skills*/}
-      <Grid container spacing={2} justifyContent="left" mt={10}>
-        <Grid item xs={4} sm={2} md={3} lg={10}
+          >
+            New York,NY 10651-78 156-187-60
+          </Typography>
+        </Grid>
+
+        {/*Skills*/}
+
+        <Grid item xs={8} sm={12} md={12} lg={8}
 
           sx={{
             width: 180,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'left',
-            mt: -8
+            mt: 0
           }}>
           <Typography variant="body2"
             sx={{
@@ -187,18 +204,21 @@ const RandProfile: React.FC = () => {
             }}>
             Skills
           </Typography>
-          <Grid item xs={4} sm={2} md={3} lg={10}>
+          <Grid item xs={8} sm={12} md={12} lg={8}>
             <Divider flexItem
               sx={{
-                width: '200px',
-                height: 2,
-                mt: -1,
-                ml: 5,
-                alignItems: 'center',
-                flexGrow: 1,
-                flexWrap: 'wrap'
-
-              }} />
+                width: {
+                  xs: '140px',
+                  sm: '175px',
+                  md: '195px',
+                  lg: '220px'
+                },
+                height: 'auto',
+                mt: -0.5,
+                ml: 4,
+                flexWrap: 'auto'
+              }}
+            />
           </Grid>
           <List>
             <ListItem disablePadding>
@@ -261,6 +281,7 @@ const RandProfile: React.FC = () => {
           </List>
         </Grid>
       </Grid>
+
 
 
 

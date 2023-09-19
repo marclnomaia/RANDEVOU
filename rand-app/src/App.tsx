@@ -6,7 +6,7 @@ import './App.css';
 //import RandNavBar from './components/NavBar/RandNavBar';
 import RandProfile from './components/Profile/RandProfile';
 //import RandRating from './components/Sidebar/RandRating';
-//import RandTaskBar from './components/Taskbar/RandTaskBar';
+import RandTaskBar from './components/Taskbar/RandTaskBar';
 //import { blue } from '@mui/material/colors';
 import RandInfo from './components/Personal_Info/RandInfo';
 //import { RandInfo } from './components/Personal_Info/RandInfo';
@@ -39,27 +39,18 @@ function App() {
       <NavBar />
   </div>*/}
 
-      <Grid container>
-        <Grid item xs={12} >
+      <Grid container spacing={2}>
 
-        </Grid>
-        <Grid container>
-        </Grid>
-        <Grid item xs={12} sm={2} md={3} lg={3}>
+        <Grid item xs={8} sm={6} md={4} lg={4} >
           <RandProfile />
         </Grid>
-        <Grid item xs={12} sm={2} md={4} lg={6}>
+        <Grid item xs={6} sm={6} md={8} lg={8}>
           <RandInfo />
         </Grid>
-        <Grid item xs={12} sm={6} md={3} lg={2}>
-
+        <Grid item xs={8} sm={6} md={8} lg={8}>
+          <RandTaskBar />
         </Grid>
-        <Grid item xs={12} sm={6} md={3} lg={2}>
-
-        </Grid>
-
       </Grid>
-
     </div >
 
 
