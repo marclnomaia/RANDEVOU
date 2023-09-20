@@ -11,8 +11,10 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ChatBubbleTwoToneIcon from '@mui/icons-material/ChatBubbleTwoTone';
-import { Divider, Grid, useMediaQuery, useTheme } from '@mui/material';
+import { Divider, Grid, ListItemIcon, useMediaQuery, useTheme } from '@mui/material';
 import RandTimeline from '../Sidebar/RandTimeline';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 
 const RandTaskBar: React.FC = () => {
@@ -30,10 +32,92 @@ const RandTaskBar: React.FC = () => {
 
 
   return (
-    <div style={{ padding: '60px' }}>
-      <Grid container spacing={2} justifyContent="right" wrap="wrap">
+    <div style={{ padding: '50px' }}>
+      <Grid xs={12} lg={12} item container spacing={0} justifyContent="right" wrap="wrap">
 
-        <Grid item xs={6} sm={6} md={8} lg={8}
+        <Grid item xs={12} sm={6} md={6} lg={8}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start',
+            width: '100%',
+            mt: -103,
+            backgroundColor: 'pink'
+
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', fontSize: 25 }}>
+              Marcilino da Maia
+            </Typography>
+            <ListItemIcon sx={{ minWidth: 'unset', fontSize: 8, ml: 1 }}>
+              <LocationOnIcon fontSize="inherit" />
+            </ListItemIcon>
+            <Typography variant="subtitle1" color="text.secondary"
+              sx={{
+                fontWeight: 'bold',
+                fontSize: 8,
+                ml: 1
+              }}
+            >
+              New York, NY
+            </Typography>
+          </div>
+
+          <Typography variant="subtitle2"
+            sx={{
+              fontSize: 12,
+              color: '#007FFF',
+              fontWeight: 'bold'
+            }}
+          >
+            Junior Programmer
+          </Typography>
+
+          <Typography variant="subtitle1"
+            sx={{
+              fontSize: 12,
+              color: '#ccc',
+              fontWeight: 'bold',
+              mt: 2
+            }}
+          >
+            Rankings
+          </Typography>
+        </Grid>
+
+        {/* Bookmark */}
+        <Grid item xs={12} sm={6} md={6} lg={8}
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            color: 'lightgray',
+            ml: 55,
+            mt: -23
+          }}
+        >
+          <BookmarkIcon
+            sx={{
+              fontSize: 16
+
+            }} />
+          <Typography variant="body2"
+            sx={{
+              fontSize: 16,
+              padding: 1,
+              textAlign: 'right',
+
+            }}
+          >
+            Bookmark
+          </Typography>
+        </Grid>
+
+
+        <Grid item xs={12} sm={6} md={8} lg={8}
           sx={{
             display: 'flex',
             gridColumn: '5 / span 8',
@@ -41,7 +125,8 @@ const RandTaskBar: React.FC = () => {
             justifyContent: 'flex-start',
             alignItems: 'flex-start',
             ml: 50,
-            mt: -75
+            mt: -95,
+            backgroundColor: 'lightgreen'
           }}
         >
           <Box
@@ -56,17 +141,16 @@ const RandTaskBar: React.FC = () => {
                 display: 'flex',
                 alignItems: 'center',
                 padding: '10px',
-                ml: isMobile ? -2 : -10,
-                mt: isMobile ? 50 : 20
+                mt: 20
               }}>
               <ChatBubbleTwoToneIcon
                 sx={{//send message icon//
-                  marginRight: isMobile ? 1 : 1,
-                  fontSize: isMobile ? 12 : 18
+                  marginRight: 1,
+                  fontSize: 18
                 }} />
               <Typography variant="body2" component="div"
                 sx={{
-                  fontSize: isMobile ? 10 : 12,
+                  fontSize: 12
 
                 }}
                 onClick={() => setMessageBoxVisible(!messageBoxVisible)}
@@ -76,17 +160,17 @@ const RandTaskBar: React.FC = () => {
 
             <Box
               sx={{//taskBar menu Background//
-                mt: isMobile ? -4 : -4.5,
-                ml: isMobile ? 11 : 5,
+                mt: -4,
+                marginRight: 1,
                 display: 'flex',
                 flexDirection: 'row',
-                width: isMobile ? 50 : 90,
-                height: isMobile ? 5 : 10,
+                width: '100%',
+                height: 'auto',
                 alignItems: 'center',
                 backgroundColor: contactInfoVisible ? 'lightblue' : 'transparent',
                 borderRadius: '1px',
-                padding: '10px',
-                gap: isMobile ? '8px' : '20px'
+                padding: '5px',
+
               }}
             >
               <Box
@@ -97,7 +181,7 @@ const RandTaskBar: React.FC = () => {
               >
                 <CheckTwoToneIcon
                   sx={{//message icon//
-                    marginRight: isMobile ? 1 : 1,
+                    ml: 15,
                     fontSize: isMobile ? 12 : 16,
                     mt: isMobile ? 0 : -0
                   }}
@@ -107,8 +191,8 @@ const RandTaskBar: React.FC = () => {
                   component="div"
                   sx={{//message menu
                     fontSize: isMobile ? 8 : 12,
-                    ml: isMobile ? -0.5 : -0.5,
-                    mt: isMobile ? 0.2 : 0.4,
+                    ml: 1,
+
                     fontFamily: 'Helvetica, Arial, sans-serif'
                   }}
                   onClick={() => setContactInfoVisible(!contactInfoVisible)}
@@ -131,6 +215,7 @@ const RandTaskBar: React.FC = () => {
               </Typography>
             </Box>
 
+
             {messageBoxVisible && (
               <Box
                 sx={{//message box
@@ -152,9 +237,6 @@ const RandTaskBar: React.FC = () => {
                 </Typography>
               </Box>
             )}
-
-
-
             {contactInfoVisible &&
               <Box
                 sx={{//contact information when clicked//
@@ -162,15 +244,15 @@ const RandTaskBar: React.FC = () => {
                   padding: isMobile ? 0.2 : 2,
                   width: isMobile ? '250PX' : '500px',
                   margin: '20px auto',
-                  ml: isMobile ? -3 : -13,
+                  ml: 0,
                   mt: isMobile ? -6.2 : -7,
                 }}>
                 <Tabs
                   value={tabValue} onChange={handleChange} TabIndicatorProps={{
                     style: {
                       backgroundColor: 'blue',
-                      width: isMobile ? '60px' : '100px',
-                      marginLeft: isMobile ? '15px' : '5px'
+                      width: '50%',
+
                     },
                   }}>
                   <Tab label={<Stack direction="row" spacing={isMobile ? 0.5 : 1} alignItems="center">

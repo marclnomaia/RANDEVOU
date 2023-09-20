@@ -1,7 +1,7 @@
 
 
 
-import { Grid } from '@mui/material';
+//import { Grid } from '@mui/material';
 import './App.css';
 //import RandNavBar from './components/NavBar/RandNavBar';
 import RandProfile from './components/Profile/RandProfile';
@@ -38,19 +38,25 @@ function App() {
       <Bar />
       <NavBar />
   </div>*/}
-
+      {/*}
       <Grid container spacing={2}>
 
-        <Grid item xs={8} sm={6} md={4} lg={4} >
+        <Grid item xs={12} sm={6} md={4} lg={4} >
           <RandProfile />
         </Grid>
-        <Grid item xs={6} sm={6} md={8} lg={8}>
+        <Grid item xs={12} sm={6} md={8} lg={8}>
           <RandInfo />
         </Grid>
-        <Grid item xs={8} sm={6} md={8} lg={8}>
+        <Grid item xs={12} sm={6} md={8} lg={8}>
           <RandTaskBar />
         </Grid>
-      </Grid>
+      </Grid>*/}
+
+
+      <RandProfile />
+
+      <RandTaskBar />
+
     </div >
 
 

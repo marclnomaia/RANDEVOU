@@ -5,8 +5,8 @@ import { Typography, Grid, ListItemIcon } from '@mui/material';
 
 const RandInfo: React.FC = () => {
   return (
-    <div style={{ padding: '60px' }}>
-      <Grid container spacing={2} justifyContent="left" wrap="wrap">  {/* Adicionado wrap="wrap" */}
+    <div style={{ padding: '50px' }}>
+      <Grid xs={12} lg={12} item container spacing={0} justifyContent="right" wrap="wrap"> {/* Adicionado wrap="wrap" */}
 
         <Grid item xs={12} sm={6} md={6} lg={8}
           sx={{
@@ -15,7 +15,8 @@ const RandInfo: React.FC = () => {
             justifyContent: 'flex-start',
             alignItems: 'flex-start',
             width: '100%',
-            mt: 7
+            mt: -115,
+            backgroundColor: 'pink'
 
           }}
         >
@@ -60,7 +61,7 @@ const RandInfo: React.FC = () => {
         </Grid>
 
         {/* Bookmark */}
-        <Grid item xs={12} sm={6} md={8} lg={8}
+        <Grid item xs={12} sm={6} md={6} lg={8}
           sx={{
             display: 'flex',
             flexDirection: 'row',
