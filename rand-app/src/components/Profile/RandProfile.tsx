@@ -10,7 +10,7 @@ import imageSrc from '../images/main_picture.jpg';
 const RandProfile: React.FC = () => {
 
   return (
-    <div style={{ padding: '60px' }}>
+    <div style={{ padding: '0' }}>
       <Grid xs={12} lg={12} item container spacing={3} justifyContent="left"
         flexDirection="column" alignItems="flex-start" >
         <Grid item xs={12} sm={6} md={6} lg={4}
