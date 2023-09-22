@@ -12,7 +12,7 @@ import Tab from '@mui/material/Tab';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ChatBubbleTwoToneIcon from '@mui/icons-material/ChatBubbleTwoTone';
 import { Divider, Grid, useMediaQuery, useTheme } from '@mui/material';
-import RandTimeline from '../Sidebar/RandTimeline';
+import RandTimeline from '../Body/Sidebar/RandTimeline';
 
 
 export default function RandTaskBar() {
