@@ -12,7 +12,7 @@ import Tab from '@mui/material/Tab';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ChatBubbleTwoToneIcon from '@mui/icons-material/ChatBubbleTwoTone';
 import { Divider, Grid, ListItemIcon, useMediaQuery, useTheme } from '@mui/material';
-import RandTimeline from '../Sidebar/RandTimeline';
+import RandTimeline from '../ExtraInfo/RandTimeline';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 

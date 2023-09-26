@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
-import { Typography, Grid, ListItemIcon, Box } from '@mui/material';
+import { Typography, Grid, ListItemIcon, Box, Rating } from '@mui/material';
 
 const RandInfo: React.FC = () => {
+
+  const [value, setValue] = useState<number | null>(8.4 / 2); // initial value 
+
+  const handleChange = (_event: React.ChangeEvent<{}>, newValue: number | null) => {
+    setValue(newValue);
+  };
+
   return (
 
     <Grid container spacing={0} padding={3} display="flex" justifyContent="start-end">
@@ -12,7 +19,7 @@ const RandInfo: React.FC = () => {
           bgcolor: 'lightBlue',
           width: '100%',
           mt: 1,
-          height: { xs: '25vh', md: '77vh' }
+          height: { xs: '5vh', md: '12vh', lg: '20vh' }
         }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', fontSize: 25 }}>
@@ -71,6 +78,40 @@ const RandInfo: React.FC = () => {
           >
             Bookmark
           </Typography>
+        </Box>
+
+        {/*Rating info*/}
+
+        <Box
+          sx={{
+            bgcolor: 'lightBlue',
+            width: '100%',
+            mt: 0,
+            height: { xs: '5vh', md: '12vh', lg: '20vh' },
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'left', // centraliza verticalmente
+
+            marginTop: -10
+          }}
+        >
+          <Typography
+            variant="body1"
+            sx={{
+              fontWeight: 'bold',
+              fontSize: 17,
+              mr: 2 // Espaçamento entre o Typography e o Rating
+            }}
+          >
+            8.6
+          </Typography>
+          <Rating
+            name="simple-controlled"
+            value={value}
+            onChange={handleChange}
+            precision={0.5}
+            sx={{ color: '#007FFF', fontSize: 15 }}
+          />
         </Box>
       </Grid>
     </Grid>

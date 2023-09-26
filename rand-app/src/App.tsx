@@ -12,6 +12,7 @@ import RandInfo from './components/Body/Personal_Info/RandInfo';
 //import { GridTest1 } from './components/GridEx/GridTest1';
 //import { GridScratch } from './components/GridEx/GridScratch';
 import { Box, Grid } from '@mui/material';
+import RandRating from './components/Body/ExtraInfo/RandRating';
 //import { RandInfo } from './components/Personal_Info/RandInfo';
 
 
@@ -84,6 +85,7 @@ function App() {
               <Grid item xs={12}>
                 <Box>
                   <RandInfo />
+
 
                 </Box>
               </Grid>

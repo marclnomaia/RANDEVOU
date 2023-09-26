@@ -90,7 +90,7 @@ const RandNavBar: React.FC = () => {
         <Box sx={{
           bgcolor: 'green',
           width: '100%',
-          minHeight: { xs: '5vh', md: '12vh', lg: '12vh' }, // Use minHeight
+          minHeight: { xs: '5vh', md: '12vh', lg: '12vh' },
         }}
         >
 
@@ -208,7 +208,6 @@ const RandNavBar: React.FC = () => {
                       src={ProfileImage}
                       alt="Profile"
                       style={{
-
                         height: '20%',
                         width: '20%',
                         borderRadius: '100%',
@@ -222,10 +221,10 @@ const RandNavBar: React.FC = () => {
                   <Box //online botton
                     sx={{
                       position: 'absolute',
-                      bottom: '55px',
-                      right: '50px',
-                      width: 'calc(1em + 4px)',
-                      height: 'calc(1em + 4px)',
+                      top: 10,
+                      right: 55,
+                      width: '5%',
+                      height: '20%',
                       borderRadius: '50%',
                       backgroundColor: 'white',
                       display: 'flex',
