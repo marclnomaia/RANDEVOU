@@ -55,13 +55,21 @@ const RandNavBar: React.FC = () => {
         <PeopleOutlineIcon sx={{ marginRight: 2 }} /> Find people
       </MenuItem>
       <MenuItem onClick={handleMenuClose} sx={{ fontSize: '14px' }}>
-        <LocalPostOfficeIcon sx={{ marginRight: 2 }} /> Messages
+        <LocalPostOfficeIcon
+          sx={{
+            marginRight: 2
+          }} />
+        Messages
         <Badge badgeContent={4} color="primary" sx={{ fontSize: '14px', marginLeft: 1 }}>
-
         </Badge>
       </MenuItem>
-      <MenuItem onClick={handleMenuClose} sx={{ fontSize: '14px' }}>
-        <AccountCircle sx={{ marginRight: 2 }} /> My Contact
+      <MenuItem onClick={handleMenuClose}
+        sx={{ fontSize: '14px' }}>
+        <AccountCircle
+          sx={{
+            marginRight: 2
+          }} />
+        My Contact
       </MenuItem>
     </Menu>
   );
@@ -78,188 +86,186 @@ const RandNavBar: React.FC = () => {
       open={isProfileMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose} sx={{ fontSize: '14px' }}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose} sx={{ fontSize: '14px' }}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}
+        sx={{ fontSize: '14px' }}>
+        Profile
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose}
+        sx={{ fontSize: '14px' }}>
+        My account
+      </MenuItem>
     </Menu>
   );
 
   return (
-
-    <Grid container spacing={0} padding={2} >
+    <Grid container alignItems="flex-start" justifyContent="flex-end" padding={2}>
       <Grid item xs={12} sm={3} md={12} lg={12}>
         <Box sx={{
-          bgcolor: 'green',
+          bgcolor: 'white',
           width: '100%',
           minHeight: { xs: '5vh', md: '12vh', lg: '12vh' },
-        }}
-        >
-
+        }}>
           <Toolbar>
+            <Grid container alignItems="center" spacing={2}>
+              <Grid item>
+                <img src={logoImage} alt="Randevou"
+                  height={isMobile ? "30px" : "40px"}
 
-            <img src={logoImage} alt="Randevou" height={isMobile ? "30px" : "40px"} />
-
-
-            <Typography variant="h6" noWrap
-              sx={{
-                fontSize: isMobile ? '11px' : '30px',
-                ml: isMobile ? 2 : 2
-              }}>
-              Randevou
-            </Typography>
-
-            {/*Search Box*/}
-
-            <InputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-              sx={{
-                fontSize: isMobile ? '11px' : '18px',
-                color: 'grey',
-                backgroundColor: 'white',
-                borderRadius: 0,
-                width: isMobile ? '35%' : '18%',
-                height: isMobile ? 'auto' : 'auto',
-                ml: isMobile ? 2 : 10,
-                borderColor: 'lightgrey',
-                borderWidth: '1px',
-                borderStyle: 'solid'
-              }}
-              startAdornment={<SearchIcon fontSize="small" color="disabled" />}
-            />
-
-
-            {/*//navBar menu//*/}
-            {isMobile && (
-              <IconButton
-                edge="end"
-                color="inherit"
-                aria-label="menu"
-                onClick={handleMobileMenuOpen}
-                sx={{ padding: 2 }}
-              >
-                <MoreIcon />
-              </IconButton>
-            )}
-
-            {!isMobile && (
-              <>
-                <Typography variant="body1"
-                  sx={{
-                    fontSize: '18px',
-                    ml: 8
-                  }}>
-                  Find people
+                />
+              </Grid>
+              <Grid item>
+                <Typography variant="h6" noWrap sx={{
+                  fontSize: isMobile ? '11px' : '30px',
+                }}>
+                  Randevou
                 </Typography>
-                <Typography variant="body1"
-                  sx={{
-                    fontSize: '18px',
-                    ml: 8
-                  }}>
-                  Messages
-                </Typography>
-                <Badge
-                  badgeContent={4}
-                  color="info"
-                  sx={{
-                    '& .MuiBadge-badge': {
-                      backgroundColor: 'lightblue',
-                      color: 'blue',
-                      mr: isMobile ? 2 : 2,
-                      mt: isMobile ? 1 : 1,
+              </Grid>
 
-                      borderRadius: '0',
-                      width: 'auto',
-                      padding: '0 6px',
-                    },
+              <Grid item xs>
+                <InputBase
+                  placeholder="Search…"
+                  inputProps={{ 'aria-label': 'search' }}
+                  sx={{
+                    fontSize: isMobile ? '11px' : '18px',
+                    color: 'grey',
+                    backgroundColor: 'white',
+                    borderRadius: 0,
+                    width: '90%',
+                    height: 'auto',
+                    ml: isMobile ? 2 : 5,
+                    borderColor: 'lightgrey',
+                    borderWidth: '1px',
+                    borderStyle: 'solid'
                   }}
-                >
-                  <IconButton
-                    size="large"
-                    aria-label="show 4 new mails"
-                    sx={{
-                      fontSize: isMobile ? '14px' : '18px',
-                      '& .MuiSvgIcon-root': {
-                        backgroundColor: theme.palette.primary.main,
-                      }
-                    }}
-                  >
-                  </IconButton>
-                </Badge>
-                <Typography variant="body1"
-                  sx={{
-                    fontSize: '18px',
-                    ml: 8
-                  }}>
-                  My Contact
-                </Typography>
+                  startAdornment={<SearchIcon fontSize="small" color="disabled" />}
+                />
+              </Grid>
 
-                {/*Picture profile and menu*/}
-
-                <Box style={{ position: 'relative' }}>
+              {/* navBar menu */}
+              {isMobile ? (
+                <Grid item>
                   <IconButton
                     edge="end"
-                    aria-label="account of current user"
-                    aria-controls={menuId}
-                    aria-haspopup="true"
-                    onClick={handleProfileMenuOpen}
                     color="inherit"
+                    aria-label="menu"
+                    onClick={handleMobileMenuOpen}
+                    sx={{ padding: 2 }}
                   >
-                    <img
-                      src={ProfileImage}
-                      alt="Profile"
-                      style={{
-                        height: '20%',
-                        width: '20%',
-                        borderRadius: '100%',
-                        border: `2px solid white`,
-                        justifyContent: 'right',
-                        marginLeft: isMobile ? 200 : 200
-                      }}
-                    />
+                    <MoreIcon />
                   </IconButton>
-
-                  <Box //online botton
-                    sx={{
-                      position: 'absolute',
-                      top: 10,
-                      right: 55,
-                      width: '5%',
-                      height: '20%',
-                      borderRadius: '50%',
-                      backgroundColor: 'white',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      boxSizing: 'border-box',
-                    }}
-                  >
-                    <FiberManualRecordIcon
-                      color="primary"
+                </Grid>
+              ) : (
+                <>
+                  <Grid item>
+                    <Typography variant="body1"
+                      sx={{ fontSize: '18px', ml: 8 }}>
+                      Find people
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="body1"
+                      sx={{ fontSize: '18px', ml: 8 }}>
+                      Messages
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Badge badgeContent={4} color="info"
                       sx={{
-                        color: 'green',
-                        width: '1em',
-                        height: '1em',
-                        margin: '2px',
+                        '& .MuiBadge-badge': {
+                          backgroundColor: 'lightblue',
+                          color: 'blue',
+                          mr: 2,
+                          mt: 1,
+                          borderRadius: '0',
+                          width: 'auto',
+                          padding: '0 6px',
+                        },
                       }}
-                    />
-                  </Box>
-                </Box>
+                    >
+                      <IconButton size="large" aria-label="show 4 new mails"
+                        sx={{
+                          fontSize: isMobile ? '14px' : '18px',
+                          '& .MuiSvgIcon-root': {
+                            backgroundColor: theme.palette.primary.main,
+                          }
+                        }}
+                      >
+                      </IconButton>
+                    </Badge>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="body1"
+                      sx={{
+                        fontSize: '18px', ml: 8
+                      }}>
+                      My Contacts
+                    </Typography>
+                  </Grid>
 
-              </>
-            )}
+                  {/* Picture profile and menu */}
+                  <Grid item>
+                    <Box sx={{ position: 'relative' }}>
+                      <IconButton
+                        edge="end"
+                        aria-label="account of current user"
+                        aria-controls={menuId}
+                        aria-haspopup="true"
+                        onClick={handleProfileMenuOpen}
+                        color="inherit"
+                      >
+                        <img
+                          src={ProfileImage}
+                          alt="Profile"
+                          style={{
+                            height: '25%',
+                            width: '25%',
+                            borderRadius: '100%',
+                            alignItems: 'right',
+                            marginLeft: '80px'
+                          }}
+                        />
+                      </IconButton>
 
+                      {/* online botton */}
+                      <Grid item>
+                        <Box sx={{
+                          position: 'relative',
+                          bottom: 70,
+                          left: 205,
+                          width: '5%',
+                          height: '5%',
+                          borderRadius: '50%',
+                          backgroundColor: '  white',
+                          display: 'flex',
+                          boxSizing: 'border-box'
+                        }}>
+
+                          <FiberManualRecordIcon
+                            color="primary"
+                            sx={{
+                              textAlign: 'right',
+                              color: 'green',
+                              width: '100%',
+                              height: '100%',
+
+                            }}
+                          />
+                        </Box>
+                      </Grid>
+                    </Box>
+                  </Grid>
+                </>
+              )}
+            </Grid>
           </Toolbar>
-
 
           {renderMenu}
           {renderMobileMenu}
         </Box>
       </Grid>
     </Grid>
-
-
   );
-};
-
+}
 export default RandNavBar;
+
 

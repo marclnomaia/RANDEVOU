@@ -11,10 +11,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ChatBubbleTwoToneIcon from '@mui/icons-material/ChatBubbleTwoTone';
-import { Divider, Grid, ListItemIcon, useMediaQuery, useTheme } from '@mui/material';
+import { Divider, Grid, useMediaQuery, useTheme } from '@mui/material';
 import RandTimeline from '../ExtraInfo/RandTimeline';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 
 const RandTaskBar: React.FC = () => {
@@ -32,178 +30,80 @@ const RandTaskBar: React.FC = () => {
 
 
   return (
-    <div style={{ padding: '50px' }}>
-      <Grid xs={12} lg={12} item container spacing={0} justifyContent="right" wrap="wrap">
 
-        <Grid item xs={12} sm={6} md={6} lg={8}
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-            alignItems: 'flex-start',
-            width: '100%',
-            mt: -103,
-            backgroundColor: 'pink'
+    <Grid container spacing={0} padding={3} display="flex" justifyContent="start-end">
+      <Grid item xs={12} sm={3} md={12}>
+        <Box sx={{
+          bgcolor: 'white',
+          width: '100%',
+          mt: -15,
+          height: { xs: '5vh', md: '12vh', lg: '20vh' }
+        }}>
 
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', fontSize: 25 }}>
-              Marcilino da Maia
-            </Typography>
-            <ListItemIcon sx={{ minWidth: 'unset', fontSize: 8, ml: 1 }}>
-              <LocationOnIcon fontSize="inherit" />
-            </ListItemIcon>
-            <Typography variant="subtitle1" color="text.secondary"
-              sx={{
-                fontWeight: 'bold',
-                fontSize: 8,
-                ml: 1
-              }}
-            >
-              New York, NY
-            </Typography>
-          </div>
-
-          <Typography variant="subtitle2"
-            sx={{
-              fontSize: 12,
-              color: '#007FFF',
-              fontWeight: 'bold'
-            }}
-          >
-            Junior Programmer
-          </Typography>
-
-          <Typography variant="subtitle1"
-            sx={{
-              fontSize: 12,
-              color: '#ccc',
-              fontWeight: 'bold',
-              mt: 2
-            }}
-          >
-            Rankings
-          </Typography>
-        </Grid>
-
-        {/* Bookmark */}
-        <Grid item xs={12} sm={6} md={6} lg={8}
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            color: 'lightgray',
-            ml: 55,
-            mt: -23
-          }}
-        >
-          <BookmarkIcon
-            sx={{
-              fontSize: 16
-
-            }} />
-          <Typography variant="body2"
-            sx={{
-              fontSize: 16,
-              padding: 1,
-              textAlign: 'right',
-
-            }}
-          >
-            Bookmark
-          </Typography>
-        </Grid>
-
-
-        <Grid item xs={12} sm={6} md={8} lg={8}
-          sx={{
-            display: 'flex',
-            gridColumn: '5 / span 8',
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-            alignItems: 'flex-start',
-            ml: 50,
-            mt: -95,
-            backgroundColor: 'lightgreen'
-          }}
-        >
-          <Box
-            sx={{
-              fontFamily: 'Helvetica, Arial, sans-serif',
-              ml: isMobile ? 6 : 0,
-              mt: isMobile ? -17 : -20
-            }}>
-
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                padding: '10px',
-                mt: 20
-              }}>
+          <Grid container spacing={1}>
+            <Grid item sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', padding: 1 }}>
               <ChatBubbleTwoToneIcon
-                sx={{//send message icon//
+                sx={{
                   marginRight: 1,
                   fontSize: 18
-                }} />
-              <Typography variant="body2" component="div"
+                }}
+              />
+              <Typography
+                variant="body2"
+                component="div"
                 sx={{
-                  fontSize: 12
-
+                  fontSize: 12,
+                  ml: 3,
+                  mt: -3
                 }}
                 onClick={() => setMessageBoxVisible(!messageBoxVisible)}
-              > Send message
+              >
+                Send message
               </Typography>
-            </Box>
+            </Grid>
 
-            <Box
-              sx={{//taskBar menu Background//
+            <Grid
+              item
+              sx={{
                 mt: -4,
                 marginRight: 1,
                 display: 'flex',
                 flexDirection: 'row',
-                width: '100%',
                 height: 'auto',
                 alignItems: 'center',
                 backgroundColor: contactInfoVisible ? 'lightblue' : 'transparent',
                 borderRadius: '1px',
                 padding: '5px',
-
               }}
-            >
-              <Box
+            />
+
+            <Grid item sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', padding: 1 }}>
+              <CheckTwoToneIcon
                 sx={{
-                  display: 'flex',
-                  alignItems: 'center'
+                  ml: 15,
+                  fontSize: isMobile ? 12 : 16,
+                  mt: isMobile ? 0 : -0
                 }}
-              >
-                <CheckTwoToneIcon
-                  sx={{//message icon//
-                    ml: 15,
-                    fontSize: isMobile ? 12 : 16,
-                    mt: isMobile ? 0 : -0
-                  }}
-                />
-                <Typography
-                  variant="body2"
-                  component="div"
-                  sx={{//message menu
-                    fontSize: isMobile ? 8 : 12,
-                    ml: 1,
-
-                    fontFamily: 'Helvetica, Arial, sans-serif'
-                  }}
-                  onClick={() => setContactInfoVisible(!contactInfoVisible)}
-                >Contacts
-                </Typography>
-              </Box>
-
+              />
               <Typography
                 variant="body2"
                 component="div"
-                sx={{//report user menu//
+                sx={{
+                  fontSize: isMobile ? 8 : 12,
+                  ml: 1,
+                  fontFamily: 'Helvetica, Arial, sans-serif'
+                }}
+                onClick={() => setContactInfoVisible(!contactInfoVisible)}
+              >
+                Contacts
+              </Typography>
+            </Grid>
+
+            <Grid item sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', padding: 1 }}>
+              <Typography
+                variant="body2"
+                component="div"
+                sx={{
                   fontSize: isMobile ? 8 : 12,
                   ml: isMobile ? 4 : 2,
                   mt: isMobile ? 0.2 : 0.1,
@@ -213,9 +113,11 @@ const RandTaskBar: React.FC = () => {
               >
                 Report user
               </Typography>
-            </Box>
+            </Grid>
+          </Grid>
 
 
+          <Grid item>
             {messageBoxVisible && (
               <Box
                 sx={{//message box
@@ -236,7 +138,10 @@ const RandTaskBar: React.FC = () => {
                   This is where your message Box would go...
                 </Typography>
               </Box>
+
             )}
+          </Grid>
+          <Grid item>
             {contactInfoVisible &&
               <Box
                 sx={{//contact information when clicked//
@@ -327,6 +232,7 @@ const RandTaskBar: React.FC = () => {
                               </Typography>
                             </Box>
                           } />
+
                       </ListItem>
                       <ListItem>
                         <ListItemText
@@ -446,14 +352,13 @@ const RandTaskBar: React.FC = () => {
                       </ListItem>
                     </List>
                   </Box>}
-              </Box>}
-          </Box>
-        </Grid>
+              </Box>
+            }
+          </Grid>
+        </Box>
       </Grid>
+    </Grid>
 
-
-
-    </div >
   );
 }
 export default RandTaskBar;
