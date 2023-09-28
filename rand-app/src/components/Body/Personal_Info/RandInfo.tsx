@@ -20,7 +20,7 @@ const RandInfo: React.FC = () => {
         <Box sx={{
           bgcolor: 'white',
           width: '100%',
-          mt: 1,
+          mt: isMobile ? 0 : 0,
           height: { xs: '5vh', md: '12vh', lg: '20vh' }
         }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>

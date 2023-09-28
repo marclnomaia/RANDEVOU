@@ -85,10 +85,14 @@ function App() {
               <Grid item xs={12}>
                 <Box>
                   <RandInfo />
-                  <RandTaskBar />
-
-
                 </Box>
+                <Grid item xs={12}>
+                  <Box>
+                    <RandTaskBar />
+                  </Box>
+                </Grid>
+
+
               </Grid>
             </Grid>
           </Grid>
