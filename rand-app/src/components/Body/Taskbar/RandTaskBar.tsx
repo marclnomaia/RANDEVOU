@@ -74,14 +74,12 @@ const RandTaskBar: React.FC = () => {
                 height: 'auto',
                 alignItems: 'center',
                 borderRadius: '1px'
-              }}
-            >
+              }}>
               <CheckTwoToneIcon
                 sx={{
                   fontSize: isMobile ? 12 : 16,
-                  mt: isMobile ? -1 : 0
-                }}
-              />
+                  mt: isMobile ? -1 : -1
+                }} />
               <Typography
                 variant="body2"
                 component="div"
@@ -91,11 +89,10 @@ const RandTaskBar: React.FC = () => {
                   fontFamily: 'Helvetica, Arial, sans-serif',
                   backgroundColor: contactInfoVisible ? 'lightblue' : 'transparent',
                   borderRadius: '1px',
-                  mt: isMobile ? -1 : 0,
+                  mt: isMobile ? -1 : -1,
                   padding: '2px'
                 }}
-                onClick={() => setContactInfoVisible(!contactInfoVisible)}
-              >
+                onClick={() => setContactInfoVisible(!contactInfoVisible)}>
                 Contacts
               </Typography>
             </Grid>
@@ -116,8 +113,7 @@ const RandTaskBar: React.FC = () => {
                   mt: isMobile ? 0 : 0.1,
                   fontFamily: 'Helvetica, Arial, sans-serif',
                   whiteSpace: 'nowrap'
-                }}
-              >
+                }}>
                 Report user
               </Typography>
             </Grid>
@@ -141,19 +137,15 @@ const RandTaskBar: React.FC = () => {
                     padding: isMobile ? 1 : 2,
                     mt: isMobile ? -30 : 0.1,
                     width: isMobile ? '80%' : '80%'
-
-                  }}
-                >
+                  }}>
                   <Typography
                     sx={{
                       fontSize: isMobile ? 8 : 12,
                       ml: isMobile ? -15 : -60
-                    }}
-                  >
+                    }}>
                     This is where your message Box would go...
                   </Typography>
                 </Box>
-
               )}
             </Grid>
             <Grid item>
@@ -164,43 +156,36 @@ const RandTaskBar: React.FC = () => {
                     padding: isMobile ? 0.2 : 2,
                     width: isMobile ? '200PX' : '500px',
                     margin: '20px auto'
-
-
                   }}>
                   <Tabs
                     value={tabValue} onChange={handleChange} TabIndicatorProps={{
                       style: {
                         backgroundColor: 'blue',
-                        width: '50%',
-
+                        width: '50%'
                       },
                     }}>
                     <Tab label={<Stack direction="row" spacing={isMobile ? 0.5 : 1} alignItems="center">
                       <VisibilityIcon
                         sx={{//timeline icon
                           fontSize: isMobile ? 10 : 15
-
-                        }}
-                      />
+                        }} />
                       <Typography
                         sx={{//timeline menu
                           fontSize: isMobile ? 6 : 12
-                        }}
-                      >Timeline
+                        }}>
+                        Timeline
                       </Typography>
                     </Stack>} value="timeline" />
                     <Tab label={<Stack direction="row" spacing={isMobile ? 0.5 : 1} alignItems="center">
-
                       <PersonIcon
                         sx={{//About icon
                           fontSize: isMobile ? 10 : 15
-                        }}
-                      />
+                        }} />
                       <Typography
                         sx={{//about menu
                           fontSize: isMobile ? 6 : 12
-                        }}
-                      >About
+                        }}>
+                        About
                       </Typography>
                     </Stack>} value="about" />
                   </Tabs>
@@ -209,7 +194,6 @@ const RandTaskBar: React.FC = () => {
                       width: isMobile ? 300 : 750, height: 2,
                       mt: -0.5, mb: 1, ml: 2
                     }} />
-
                   {tabValue === 'timeline' && <RandTimeline />}
                   {tabValue === 'about' &&
                     <Box
@@ -221,8 +205,8 @@ const RandTaskBar: React.FC = () => {
                           marginBottom: 2, color: 'grey',
                           textAlign: 'left', fontSize: isMobile ? 8 : 12,
                           ml: isMobile ? 2 : 2
-                        }}
-                      >Contact Information
+                        }}>
+                        Contact Information
                       </Typography>
                       <List>
                         <ListItem>
@@ -235,8 +219,8 @@ const RandTaskBar: React.FC = () => {
                                 <Typography variant="body2" component="span"
                                   sx={{
                                     fontSize: isMobile ? 8 : 12, mt: -3, ml: 0
-                                  }}
-                                >Phone:
+                                  }}>
+                                  Phone:
                                 </Typography>
                                 <Typography variant="body2" component="span" color="primary"
                                   sx={{
@@ -246,7 +230,6 @@ const RandTaskBar: React.FC = () => {
                                 </Typography>
                               </Box>
                             } />
-
                         </ListItem>
                         <ListItem>
                           <ListItemText
@@ -261,21 +244,30 @@ const RandTaskBar: React.FC = () => {
                                   <Typography variant="body1" component="span"
                                     sx={{
                                       fontSize: isMobile ? 8 : 12, mt: -2, ml: 0
-                                    }}>Address:</Typography>
+                                    }}>
+                                    Address:
+                                  </Typography>
                                   <Typography variant="body1"
                                     sx={{
-                                      fontSize: isMobile ? 8 : 12, color: 'black',
-                                      ml: 2, mt: -2, width: '200px'
-                                    }}
-                                  >525 E 68th Street
+                                      fontSize: isMobile ? 8 : 12,
+                                      color: 'black',
+                                      ml: 2,
+                                      mt: -2,
+                                      width: '200px'
+                                    }}>
+                                    525 E 68th Street
                                   </Typography>
                                 </Box>
                                 <Typography variant="body2"
                                   sx={{
-                                    fontSize: isMobile ? 8 : 12, color: 'black',
-                                    paddingY: 2, width: '200px', ml: 11, mt: -2
-                                  }}
-                                >New York, NY 10651-78 156-187-60
+                                    fontSize: isMobile ? 8 : 12,
+                                    color: 'black',
+                                    paddingY: 2,
+                                    width: '200px',
+                                    ml: 11,
+                                    mt: -2
+                                  }}>
+                                  New York, NY 10651-78 156-187-60
                                 </Typography>
                               </Box>
                             }
@@ -286,14 +278,20 @@ const RandTaskBar: React.FC = () => {
                             primary={
                               <Box display="flex" gap={6} >
                                 <Typography variant="body2" component="span"
-                                  sx={{ fontSize: isMobile ? 8 : 12, mt: -3, ml: 0 }}
-                                >E-mail:
+                                  sx={{
+                                    fontSize: isMobile ? 8 : 12,
+                                    mt: -3,
+                                    ml: 0
+                                  }}>
+                                  E-mail:
                                 </Typography>
                                 <Typography variant="body2" component="span" color="primary"
                                   sx={{
-                                    fontSize: isMobile ? 8 : 12, mt: -3, ml: 0
-                                  }}
-                                >marcilino.damaia@gmail.com
+                                    fontSize: isMobile ? 8 : 12,
+                                    mt: -3,
+                                    ml: 0
+                                  }}>
+                                  marcilino.damaia@gmail.com
                                 </Typography>
                               </Box>
                             }
@@ -311,9 +309,11 @@ const RandTaskBar: React.FC = () => {
                                 </Typography>
                                 <Typography variant="body2" component="span" color="primary"
                                   sx={{
-                                    fontSize: isMobile ? 8 : 12, ml: -0.5, mt: -2
-                                  }}
-                                >marcmaia.com
+                                    fontSize: isMobile ? 8 : 12,
+                                    ml: -0.5,
+                                    mt: -2
+                                  }}>
+                                  marcmaia.com
                                 </Typography>
                               </Box>
                             }
@@ -322,10 +322,13 @@ const RandTaskBar: React.FC = () => {
                       </List>
                       <Typography variant="body2" component="div"
                         sx={{
-                          marginBottom: 2, color: 'grey', textAlign: 'left',
-                          fontSize: isMobile ? 8 : 12, ml: 2
-                        }}
-                      >Basic Information
+                          marginBottom: 2,
+                          color: 'grey',
+                          textAlign: 'left',
+                          fontSize: isMobile ? 8 : 12,
+                          ml: 2
+                        }}>
+                        Basic Information
                       </Typography>
                       <List>
                         <ListItem>
@@ -333,12 +336,20 @@ const RandTaskBar: React.FC = () => {
                             primary={
                               <Box display="flex" gap={4} >
                                 <Typography variant="body2"
-                                  sx={{ fontSize: isMobile ? 8 : 12, mt: -3, ml: 0 }}
-                                >Birthday
+                                  sx={{
+                                    fontSize: isMobile ? 8 : 12,
+                                    mt: -3,
+                                    ml: 0
+                                  }}>
+                                  Birthday
                                 </Typography>
                                 <Typography variant="body2"
-                                  sx={{ fontSize: isMobile ? 8 : 12, mt: -3, ml: 0 }}
-                                >June 5, 1992
+                                  sx={{
+                                    fontSize: isMobile ? 8 : 12,
+                                    mt: -3,
+                                    ml: 0
+                                  }}>
+                                  June 5, 1992
                                 </Typography>
                               </Box>
                             }
@@ -350,22 +361,26 @@ const RandTaskBar: React.FC = () => {
                               <Box display="flex" gap={4}>
                                 <Typography variant="body2"
                                   sx={{
-                                    fontSize: isMobile ? 8 : 12, mt: -2
-                                  }}
-                                >Gender
+                                    fontSize: isMobile ? 8 : 12,
+                                    mt: -2
+                                  }}>
+                                  Gender
                                 </Typography>
                                 <Typography variant="body2"
                                   sx={{
-                                    fontSize: isMobile ? 8 : 12, mt: -2, ml: 0.5
-                                  }}
-                                >Male
+                                    fontSize: isMobile ? 8 : 12,
+                                    mt: -2,
+                                    ml: 0.5
+                                  }}>
+                                  Male
                                 </Typography>
                               </Box>
                             }
                           />
                         </ListItem>
                       </List>
-                    </Box>}
+                    </Box>
+                  }
                 </Box>
               }
             </Grid>
