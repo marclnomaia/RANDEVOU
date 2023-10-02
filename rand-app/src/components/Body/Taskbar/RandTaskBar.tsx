@@ -35,7 +35,7 @@ const RandTaskBar: React.FC = () => {
         <Box sx={{
           bgcolor: 'white',
           width: '100%',
-          mt: isMobile ? 0 : -18,
+          mt: isMobile ? 0 : -19,
           height: { xs: '5vh', md: '12vh', lg: '20vh' }
         }}>
 
@@ -45,7 +45,7 @@ const RandTaskBar: React.FC = () => {
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
-                mb: isMobile ? 0 : 0,
+                mt: isMobile ? 0 : 0,
                 padding: 1
               }}>
               <ChatBubbleTwoToneIcon
@@ -67,7 +67,7 @@ const RandTaskBar: React.FC = () => {
             </Grid>
             <Grid item
               sx={{
-                mb: isMobile ? 0 : 0,
+                mt: isMobile ? 0 : 0,
                 marginRight: 1,
                 display: 'flex',
                 flexDirection: 'row',
@@ -126,7 +126,7 @@ const RandTaskBar: React.FC = () => {
                 flexDirection: 'row',
                 alignItems: 'left',
                 padding: 1,
-                mt: isMobile ? -30 : 0,
+                mt: isMobile ? 0 : 0,
                 ml: isMobile ? 0 : -6
               }}>
               {messageBoxVisible && (
@@ -218,13 +218,17 @@ const RandTaskBar: React.FC = () => {
                                 }}>
                                 <Typography variant="body2" component="span"
                                   sx={{
-                                    fontSize: isMobile ? 8 : 12, mt: -3, ml: 0
+                                    fontSize: isMobile ? 8 : 12,
+                                    mt: -3,
+                                    ml: 0
                                   }}>
                                   Phone:
                                 </Typography>
                                 <Typography variant="body2" component="span" color="primary"
                                   sx={{
-                                    fontSize: isMobile ? 8 : 12, mt: -3, ml: 0
+                                    fontSize: isMobile ? 8 : 12,
+                                    mt: -3,
+                                    ml: 0
                                   }}
                                 >+4167318796
                                 </Typography>
@@ -243,7 +247,9 @@ const RandTaskBar: React.FC = () => {
                                 <Box display="flex" gap={3} flexDirection="row" alignItems="center" >
                                   <Typography variant="body1" component="span"
                                     sx={{
-                                      fontSize: isMobile ? 8 : 12, mt: -2, ml: 0
+                                      fontSize: isMobile ? 8 : 12,
+                                      mt: -2,
+                                      ml: 0
                                     }}>
                                     Address:
                                   </Typography>

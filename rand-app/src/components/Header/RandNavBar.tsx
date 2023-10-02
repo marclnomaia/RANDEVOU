@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   Toolbar, IconButton, Typography, InputBase, Badge,
-  Grid, Box, Menu, MenuItem, useMediaQuery, useTheme
+  Grid, Box, Menu, MenuItem, useMediaQuery, useTheme, Divider, makeStyles
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -97,13 +97,18 @@ const RandNavBar: React.FC = () => {
     </Menu>
   );
 
+
+
   return (
+
+
     <Grid container alignItems="flex-start" justifyContent="flex-end" padding={2}>
       <Grid item xs={12} sm={3} md={12} lg={12}>
         <Box sx={{
           bgcolor: 'white',
           width: '100%',
           minHeight: { xs: '5vh', md: '12vh', lg: '12vh' },
+          borderBottom: '2px solid #ccc'
         }}>
           <Toolbar>
             <Grid container alignItems="center" spacing={2}>
@@ -250,6 +255,7 @@ const RandNavBar: React.FC = () => {
 
                             }}
                           />
+
                         </Box>
                       </Grid>
                     </Box>
