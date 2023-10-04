@@ -100,8 +100,6 @@ const RandNavBar: React.FC = () => {
 
 
   return (
-
-
     <Grid container alignItems="flex-start" justifyContent="flex-end" padding={2}>
       <Grid item xs={12} sm={3} md={12} lg={12}>
         <Box sx={{
@@ -115,7 +113,6 @@ const RandNavBar: React.FC = () => {
               <Grid item>
                 <img src={logoImage} alt="Randevou"
                   height={isMobile ? "30px" : "40px"}
-
                 />
               </Grid>
               <Grid item>
@@ -125,7 +122,6 @@ const RandNavBar: React.FC = () => {
                   Randevou
                 </Typography>
               </Grid>
-
               <Grid item xs>
                 <InputBase
                   placeholder="Search…"
@@ -145,7 +141,6 @@ const RandNavBar: React.FC = () => {
                   startAdornment={<SearchIcon fontSize="small" color="disabled" />}
                 />
               </Grid>
-
               {/* navBar menu */}
               {isMobile ? (
                 <Grid item>
@@ -154,8 +149,7 @@ const RandNavBar: React.FC = () => {
                     color="inherit"
                     aria-label="menu"
                     onClick={handleMobileMenuOpen}
-                    sx={{ padding: 2 }}
-                  >
+                    sx={{ padding: 2 }}>
                     <MoreIcon />
                   </IconButton>
                 </Grid>
@@ -185,16 +179,14 @@ const RandNavBar: React.FC = () => {
                           width: 'auto',
                           padding: '0 6px',
                         },
-                      }}
-                    >
+                      }}>
                       <IconButton size="large" aria-label="show 4 new mails"
                         sx={{
                           fontSize: isMobile ? '14px' : '18px',
                           '& .MuiSvgIcon-root': {
                             backgroundColor: theme.palette.primary.main,
                           }
-                        }}
-                      >
+                        }}>
                       </IconButton>
                     </Badge>
                   </Grid>
@@ -206,7 +198,6 @@ const RandNavBar: React.FC = () => {
                       My Contacts
                     </Typography>
                   </Grid>
-
                   {/* Picture profile and menu */}
                   <Grid item>
                     <Box sx={{ position: 'relative' }}>
@@ -216,8 +207,7 @@ const RandNavBar: React.FC = () => {
                         aria-controls={menuId}
                         aria-haspopup="true"
                         onClick={handleProfileMenuOpen}
-                        color="inherit"
-                      >
+                        color="inherit">
                         <img
                           src={ProfileImage}
                           alt="Profile"
@@ -227,10 +217,8 @@ const RandNavBar: React.FC = () => {
                             borderRadius: '100%',
                             alignItems: 'right',
                             marginLeft: '80px'
-                          }}
-                        />
+                          }} />
                       </IconButton>
-
                       {/* online botton */}
                       <Grid item>
                         <Box sx={{
@@ -244,7 +232,6 @@ const RandNavBar: React.FC = () => {
                           display: 'flex',
                           boxSizing: 'border-box'
                         }}>
-
                           <FiberManualRecordIcon
                             color="primary"
                             sx={{
@@ -252,10 +239,7 @@ const RandNavBar: React.FC = () => {
                               color: 'green',
                               width: '100%',
                               height: '100%',
-
-                            }}
-                          />
-
+                            }} />
                         </Box>
                       </Grid>
                     </Box>
@@ -264,7 +248,6 @@ const RandNavBar: React.FC = () => {
               )}
             </Grid>
           </Toolbar>
-
           {renderMenu}
           {renderMobileMenu}
         </Box>

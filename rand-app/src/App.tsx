@@ -4,11 +4,11 @@
 //import { Grid } from '@mui/material';
 import './App.css';
 import RandNavBar from './components/Header/RandNavBar';
-import RandProfile from './components/Body/Profile/RandProfile';
+import RandExperience from './components/Body/Profile/RandExperience';
 //import RandRating from './components/Sidebar/RandRating';
-import RandTaskBar from './components/Body/Taskbar/RandTaskBar';
+import RandTaskBar from './components/Body/Personal_Information/RandTaskBar';
 //import { blue } from '@mui/material/colors';
-import RandInfo from './components/Body/Personal_Info/RandInfo';
+import RandInfo from './components/Body/Head_Info/RandInfo';
 //import { GridTest1 } from './components/GridEx/GridTest1';
 //import { GridScratch } from './components/GridEx/GridScratch';
 import { Box, Grid } from '@mui/material';
@@ -75,7 +75,7 @@ function App() {
             <Grid container spacing={1}>
               <Grid item xs={12}>
                 <Box>
-                  <RandProfile />
+                  <RandExperience />
                 </Box>
               </Grid>
             </Grid>

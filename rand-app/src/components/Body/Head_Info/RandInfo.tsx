@@ -44,34 +44,27 @@ const RandInfo: React.FC = () => {
                 fontWeight: 'bold',
                 fontSize: 8,
                 ml: 1
-              }}
-            >
+              }}>
               New York, NY
             </Typography>
           </div>
-
           <Typography variant="subtitle2"
             sx={{
               fontSize: isMobile ? 8 : 12,
               color: '#007FFF',
               fontWeight: 'bold'
-            }}
-          >
+            }}>
             Junior Programmer
           </Typography>
-
           <Typography variant="subtitle1"
             sx={{
               fontSize: isMobile ? 9 : 12,
               color: '#ccc',
               fontWeight: 'bold',
               mt: isMobile ? 1 : 2
-            }}
-          >
+            }}>
             Rankings
           </Typography>
-
-
           {/* Bookmark */}
           <Typography
             variant="body2"
@@ -83,22 +76,17 @@ const RandInfo: React.FC = () => {
               color: 'lightgrey',
               mr: isMobile ? 1 : 8,
               mt: isMobile ? -7 : -10
-            }}
-          >
+            }}>
             <BookmarkIcon
               sx={{
                 fontSize: 16,
                 color: 'lightgrey',
                 marginRight: 1
-              }}
-            />
+              }} />
             Bookmark
           </Typography>
-
         </Box>
-
         {/*Ranking info*/}
-
         <Box
           sx={{
             width: '100%',
@@ -108,8 +96,7 @@ const RandInfo: React.FC = () => {
             flexDirection: 'row',
             alignItems: 'left',
             marginTop: isMobile ? 3 : -6
-          }}
-        >
+          }}>
           <Typography
             variant="body1"
             sx={{
@@ -129,10 +116,6 @@ const RandInfo: React.FC = () => {
         </Box>
       </Grid>
     </Grid >
-
-
-
-
   );
 };
 
