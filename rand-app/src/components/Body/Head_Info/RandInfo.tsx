@@ -15,13 +15,14 @@ const RandInfo: React.FC = () => {
 
   return (
 
-    <Grid container spacing={0} padding={3} display="flex" justifyContent="start-end">
+    <Grid container spacing={0} padding={2} display="flex" justifyContent="start-end">
       <Grid item xs={12} sm={3} md={12}>
         <Box sx={{
-          bgcolor: 'white',
+          bgcolor: 'grey',
           width: '100%',
           mt: isMobile ? 0 : 0,
-          height: { xs: '5vh', md: '12vh', lg: '20vh' }
+          flexWrap: 'wrap',
+          height: { xs: '13vh', md: '12vh', lg: '20vh' }
         }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Typography variant="h6" component="div"
@@ -102,7 +103,8 @@ const RandInfo: React.FC = () => {
             sx={{
               fontWeight: 'bold',
               fontSize: isMobile ? 9 : 18,
-              mr: 1
+              mr: 1,
+              mt: isMobile ? -6 : 0
             }}>
             8.6
           </Typography>
@@ -111,7 +113,11 @@ const RandInfo: React.FC = () => {
             value={value}
             onChange={handleChange}
             precision={0.5}
-            sx={{ color: '#007FFF', fontSize: isMobile ? 9 : 20 }}
+            sx={{
+              color: '#007FFF',
+              fontSize: isMobile ? 9 : 20,
+              mt: isMobile ? -6 : 0
+            }}
           />
         </Box>
       </Grid>

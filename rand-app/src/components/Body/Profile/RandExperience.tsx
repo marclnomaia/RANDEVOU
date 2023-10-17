@@ -19,12 +19,12 @@ const RandProfile: React.FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Grid container spacing={0} padding={4} display="flex" justifyContent="start-end">
+    <Grid container spacing={0} padding={2} display="flex" justifyContent="start-end">
       <Grid item xs={12} sm={3} md={12} lg={12}>
         <Box sx={{
-          bgcolor: 'white',
+          bgcolor: 'lightBlue',
           width: '100%',
-          height: { xs: '45vh', md: '77vh' }
+          height: { xs: '55vh', md: '77vh' }
         }}>
           <Avatar
             src={imageSrc}
@@ -33,7 +33,8 @@ const RandProfile: React.FC = () => {
               borderRadius: 0,
               width: isMobile ? '30%' : '100%',
               height: isMobile ? '30%' : '30%',
-              flexWrap: 'wrap',
+              mt: isMobile ? 0 : -1,
+              flexWrap: 'wrap'
             }} />
           {/* Work menu */}
           <Box>
@@ -41,7 +42,7 @@ const RandProfile: React.FC = () => {
               sx={{
                 fontSize: isMobile ? 8 : 12,
                 color: '#ccc',
-                mt: isMobile ? 1 : 2,
+                mt: isMobile ? 1 : 1,
               }}>
               Work
             </Typography>

@@ -18,9 +18,9 @@ const RandTimeline: React.FC = () => {
     <Grid container spacing={0} padding={3} display="flex" justifyContent="start-end">
       <Grid item xs={12} sm={3} md={12}>
         <Box sx={{
-          bgcolor: 'white',
+          bgcolor: 'lightgreen',
           width: '100%',
-          mt: isMobile ? -2 : 0,
+          mt: isMobile ? -5 : 0,
           height: { xs: '5vh', md: '12vh', lg: '20vh' }
         }}>
           <Timeline >
@@ -87,16 +87,8 @@ const RandTimeline: React.FC = () => {
               <TimelineSeparator>
                 <TimelineDot
                   sx={{
-                    width: isMobile ? '1px' : '12px',
-                    height: isMobile ? '1px' : '12px',
-                    ml: 0.5
-                  }}
-                />
-                <TimelineConnector
-                  sx={{
-                    width: isMobile ? '1px' : '12px',
-                    height: isMobile ? '1px' : '30px',
-                    ml: 0.5
+                    width: isMobile ? '1px' : '1px',
+                    height: isMobile ? '1px' : '1px',
                   }}
                 />
               </TimelineSeparator>

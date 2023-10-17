@@ -30,13 +30,13 @@ const RandTaskBar: React.FC = () => {
 
   return (
 
-    <Grid container spacing={0} padding={3} display="flex" justifyContent="start-end">
+    <Grid container spacing={0} padding={2} display="flex" justifyContent="start-end">
       <Grid item xs={12} sm={3} md={12}>
         <Box sx={{
-          bgcolor: 'white',
+          bgcolor: 'lightgreen',
           width: '100%',
           mt: isMobile ? 0 : -19,
-          height: { xs: '5vh', md: '12vh', lg: '20vh' }
+          height: { xs: '65vh', md: '12vh', lg: '60vh' }
         }}>
 
           <Grid container spacing={1}>
@@ -64,6 +64,7 @@ const RandTaskBar: React.FC = () => {
               >
                 Send message
               </Typography>
+
             </Grid>
             <Grid item
               sx={{
@@ -152,19 +153,26 @@ const RandTaskBar: React.FC = () => {
               {contactInfoVisible &&
                 <Box
                   sx={{//contact information when clicked//
-                    marginTop: 3, borderRadius: '10px',
+                    marginTop: 3,
+                    borderRadius: '10px',
                     padding: isMobile ? 0.2 : 2,
                     width: isMobile ? '200PX' : '500px',
-                    margin: '20px auto'
+                    margin: '20px auto',
+
                   }}>
                   <Tabs
-                    value={tabValue} onChange={handleChange} TabIndicatorProps={{
+                    value={tabValue}
+                    onChange={handleChange}
+                    TabIndicatorProps={{
                       style: {
                         backgroundColor: 'blue',
-                        width: '50%'
+                        width: '60%',
+                        marginLeft: '3%'
                       },
                     }}>
-                    <Tab label={<Stack direction="row" spacing={isMobile ? 0.5 : 1} alignItems="center">
+                    <Tab label={<Stack direction="row"
+                      spacing={isMobile ? 0.5 : 1}
+                      alignItems="center">
                       <VisibilityIcon
                         sx={{//timeline icon
                           fontSize: isMobile ? 10 : 15
