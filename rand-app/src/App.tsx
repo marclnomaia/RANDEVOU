@@ -1,8 +1,9 @@
 import './App.css';
-import RandNavBar from './components/Header/RandNavBar';
-import RandExperience from './components/Body/Profile/RandExperience';
-import RandTaskBar from './components/Body/Personal_Information/RandTaskBar';
-import RandInfo from './components/Body/Head_Info/RandInfo';
+//import RandNavBar from './components/Header/RandNavBar';
+//import RandExperience from './components/Body/Profile/RandExperience';
+//import RandTaskBar from './components/Body/Personal_Information/RandTaskBar';
+//import RandInfo from './components/Body/Head_Info/RandInfo';
+import Text from './components/Box/Text';
 import { Box, Grid } from '@mui/material';
 import { useEffect } from 'react';
 
@@ -15,8 +16,7 @@ function App() {
     <div>
 
       <Grid container spacing={1} xs={12} sm={9} md={12}>
-
-        <Grid item xs={12} sm={3} md={12}>
+        {/*<Grid item xs={12} sm={3} md={12}>
           <Box>
             <RandNavBar />
           </Box>
@@ -35,22 +35,21 @@ function App() {
             <Grid item xs={12}>
               <Box>
                 <RandInfo />
-              </Box>
-              <Grid item xs={12}>
-                <Box>
-                  <RandTaskBar />
-                </Box>
-              </Grid>
-            </Grid>
-          </Grid>
+              </Box>*/}
+        <Grid item xs={12}>
+          <Box>
+            {/*<RandTaskBar />*/}
+            <Text />
+          </Box>
         </Grid>
       </Grid>
 
+
+
+
+
+
     </div >
-
-
-
-
 
   );
 }

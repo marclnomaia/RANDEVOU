@@ -144,7 +144,7 @@ const RandTaskBar: React.FC = () => {
                       fontSize: isMobile ? 8 : 12,
                       ml: isMobile ? -15 : -60
                     }}>
-                    This is where your message Box would go...
+
                   </Typography>
                 </Box>
               )}
