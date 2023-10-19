@@ -4,6 +4,8 @@ import './App.css';
 //import RandTaskBar from './components/Body/Personal_Information/RandTaskBar';
 //import RandInfo from './components/Body/Head_Info/RandInfo';
 import Text from './components/Box/Text';
+import Number from './components/Box/Number';
+import Data from './components/Box/Data';
 import { Box, Grid } from '@mui/material';
 import { useEffect } from 'react';
 
@@ -36,10 +38,20 @@ function App() {
               <Box>
                 <RandInfo />
               </Box>*/}
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={4} md={4}>
           <Box>
             {/*<RandTaskBar />*/}
             <Text />
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={4} md={4}>
+          <Box>
+            <Number />
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={4} md={4}>
+          <Box>
+            <Data />
           </Box>
         </Grid>
       </Grid>

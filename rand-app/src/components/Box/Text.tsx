@@ -1,51 +1,54 @@
-import * as React from 'react';
-import { TextareaAutosize } from '@mui/base';
-import { styled } from '@mui/system';
-import { blue, grey } from '@mui/material/colors';
-import Grid from '@mui/material/Grid';
+import React, { useState } from 'react';
+import { Grid, Box, TextField } from '@mui/material';
 
-function Text() {
+function FormBox() {
+  const [text, setText] = useState('');
 
+  const handleTextChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+    setText(event.target.value);
+  };
 
-  const Textarea = styled(TextareaAutosize)(
-    ({ theme }) => `
-    width: 320px;
-    font-family: IBM Plex Sans, sans-serif;
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1.5;
-    padding: 12px;
-    border-radius: 12px 12px 0 12px;
-    color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-    background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
-    border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-    box-shadow: 0px 2px 2px ${theme.palette.mode === 'dark' ? grey[900] : grey[50]};
+  const handleBlur = () => {
+    // When the user clicks outside the field, you can perform the necessary action with the text.
 
-    &:hover {
-      border-color: ${blue[400]};
+    console.log('Saved text:', text);
+
+    // Clear the text field after saving the value.
+    setText('');
+  };
+
+  // This method will prevent the form from being submitted when the "Enter" key is pressed.
+  const handleKeyDown = (event: { key: string; shiftKey: any; preventDefault: () => void; }) => {
+    if (event.key === 'Enter') {
+      if (!event.shiftKey) {
+        event.preventDefault();
+        // Add any additional action you want to execute
+      }
     }
-
-    &:focus {
-      border-color: ${blue[400]};
-      box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? blue[500] : blue[200]};
-    }
-
-    // firefox
-    &:focus-visible {
-      outline: 0;
-    }
-  `,
-  );
-
-
+  };
 
   return (
-    <Grid container spacing={3} direction="column" alignItems="center" >
-      <Grid item xs={12} sm={6} md={4}
-        style={{ minHeight: '100vh' }}>
-        <Textarea aria-label="empty textarea" placeholder="Empty" />
+    <Box sx={{ flexGrow: 1, m: 2 }}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={4} lg={4}>
+          <TextField
+            fullWidth
+            label="Type a text here"
+            variant="outlined"
+            value={text}
+            onChange={handleTextChange}
+            onBlur={handleBlur}
+            multiline
+            rows={1}
+            onKeyDown={handleKeyDown} // prevents "Enter" from submitting the form
+          />
+        </Grid>
       </Grid>
-    </Grid>
+    </Box>
   );
-};
-export default Text;
+}
+
+export default FormBox;
+
+
+
