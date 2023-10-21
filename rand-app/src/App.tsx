@@ -5,7 +5,7 @@ import './App.css';
 //import RandInfo from './components/Body/Head_Info/RandInfo';
 import Text from './components/Box/Text';
 import Number from './components/Box/Number';
-import Data from './components/Box/Data';
+import Date from './components/Box/Date';
 import { Box, Grid } from '@mui/material';
 import { useEffect } from 'react';
 
@@ -51,7 +51,7 @@ function App() {
         </Grid>
         <Grid item xs={12} sm={4} md={4}>
           <Box>
-            <Data />
+            <Date />
           </Box>
         </Grid>
       </Grid>
