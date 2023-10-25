@@ -4,8 +4,34 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import { IconButton } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
+import {
+  Unstable_NumberInput as BaseNumberInput,
+  NumberInputProps
+} from '@mui/base/Unstable_NumberInput';
+
+const CustomNumberInput = React.forwardRef(function CustomNumberInput(
+  props: NumberInputProps,
+  ref: React.ForwardedRef<HTMLDivElement>,
+) {
+  return (
+    <BaseNumberInput
+      slotProps={{
+        incrementButton: {
+          children: '▴',
+        },
+        decrementButton: {
+          children: '▾',
+        },
+      }}
+      {...props}
+      ref={ref}
+    />
+  );
+});
 
 export default function Number() {
+
+  <CustomNumberInput aria-label="Demo number input" placeholder="Type a number…" />
 
   const [inputValue, setInputValue] = useState('');
 
@@ -41,7 +67,6 @@ export default function Number() {
         padding: 1,
         marginTop: '15px'
 
-
       }}>
         <Box sx={{
           flexGrow: 1,
@@ -66,7 +91,7 @@ export default function Number() {
                 sx={{
                   position: 'absolute',
                   top: '50%',
-                  right: '10px',
+                  right: '40px',
                   transform: 'translateY(-50%)',
                 }}
               >

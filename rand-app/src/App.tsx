@@ -8,6 +8,8 @@ import Number from './components/Box/Number';
 import Date from './components/Box/Date';
 import { Box, Grid } from '@mui/material';
 import { useEffect } from 'react';
+//import { DataProvider } from './components/Box/DataContext';
+import PrintButton from './components/Box/PrintButton';
 
 function App() {
   useEffect(() => {
@@ -52,6 +54,13 @@ function App() {
         <Grid item xs={12} sm={4} md={4}>
           <Box>
             <Date />
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={12} md={12}>
+          <Box>
+
+            <PrintButton />
+
           </Box>
         </Grid>
       </Grid>

@@ -4,8 +4,17 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { Box, Grid } from '@mui/material';
+//import { useData } from './DataContext';
 
 function Date() {
+  //Hook useData//
+  // const [data, setData] = useData();
+  //const handleDateChange = (newDate: any) => { // Alterado para 'any', pois não sabemos o tipo exato retornado
+  // Atualiza o novo valor. Você pode precisar formatar 'newDate' antes de configurá-lo.
+  // const formattedDate = newDate ? newDate.toString() : ''; // Simples conversão para string; ajuste conforme necessário
+  //setData((prevData) => ({ ...prevData, date: formattedDate }));
+  //};
+
   return (
 
     <Grid container spacing={2} padding={3}>
@@ -15,23 +24,25 @@ function Date() {
         alignItems: 'center',
         width: '100%',
         backgroundColor: 'lightgrey',
-        marginTop: '15px'
+        marginTop: '15px',
+
       }}>
         <Box sx={{
           flexGrow: 1,
           margin: 2,
-          backgroundColor: 'lightBlue',
-          height: '70%'
         }}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer
               components={[
                 'DateTimePicker',
-              ]}
-            >
+              ]}>
               <DemoItem
               >
-                <DateTimePicker />
+                <DateTimePicker
+
+                  sx={{
+                    backgroundColor: 'lightblue'
+                  }} />
               </DemoItem>
             </DemoContainer>
           </LocalizationProvider>
@@ -40,4 +51,4 @@ function Date() {
     </Grid>
   );
 }
-export default Date
+export default Date;
