@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Grid, Box, TextField } from '@mui/material';
 
-function FormBox() {
+function Text() {
   const [text, setText] = useState('');
 
   const handleTextChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
@@ -28,9 +28,23 @@ function FormBox() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, m: 2 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={4} lg={4}>
+
+    <Grid container spacing={2} padding={3}>
+      <Grid item xs={12} sx={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '100%',
+        backgroundColor: 'lightgrey',
+        padding: 1,
+        marginTop: '15px'
+      }}>
+        <Box sx={{
+          flexGrow: 1,
+          margin: 2,
+          backgroundColor: 'lightBlue',
+          width: '100%'
+        }}>
           <TextField
             fullWidth
             label="Type a text here"
@@ -42,13 +56,14 @@ function FormBox() {
             rows={1}
             onKeyDown={handleKeyDown} // prevents "Enter" from submitting the form
           />
-        </Grid>
+        </Box>
       </Grid>
-    </Box>
+    </Grid>
+
   );
 }
 
-export default FormBox;
+export default Text;
 
 
 

@@ -31,9 +31,23 @@ export default function Number() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, m: 2 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={4} lg={4}>
+    <Grid container spacing={2} padding={3}>
+      <Grid item xs={12} sx={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '100%',
+        backgroundColor: 'lightgrey',
+        padding: 1,
+        marginTop: '15px'
+
+
+      }}>
+        <Box sx={{
+          flexGrow: 1,
+          margin: 2,
+          backgroundColor: 'lightBlue'
+        }}>
           <Box sx={{ position: 'relative' }}>
             <TextField
               fullWidth
@@ -60,9 +74,10 @@ export default function Number() {
               </IconButton>
             )}
           </Box>
-        </Grid>
+        </Box>
       </Grid>
-    </Box>
+    </Grid>
+
   );
 }
 
