@@ -1,19 +1,25 @@
 import * as React from 'react';
 import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+//import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { Box, Grid } from '@mui/material';
-//import { useData } from './DataContext';
+import { useData } from '../Box/useData';
+//import dayjs from 'dayjs';
+//import { TextFieldVariants, OutlinedTextFieldProps, StandardTextFieldProps, FilledTextFieldProps } from '@mui/material/TextField';
+//import { JSX } from 'react/jsx-runtime';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
 function Date() {
-  //Hook useData//
-  // const [data, setData] = useData();
-  //const handleDateChange = (newDate: any) => { // Alterado para 'any', pois não sabemos o tipo exato retornado
-  // Atualiza o novo valor. Você pode precisar formatar 'newDate' antes de configurá-lo.
-  // const formattedDate = newDate ? newDate.toString() : ''; // Simples conversão para string; ajuste conforme necessário
-  //setData((prevData) => ({ ...prevData, date: formattedDate }));
-  //};
+  const { data, setData } = useData();
+
+
+
+  const handleDateChange = (newDate: Date | null) => {
+    const formattedDate = newDate ? newDate.toISOString() : '';
+    setData((prevData: any) => ({ ...prevData, date: formattedDate }));
+  };
+
 
   return (
 
@@ -31,18 +37,18 @@ function Date() {
           flexGrow: 1,
           margin: 2,
         }}>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DemoContainer
               components={[
                 'DateTimePicker',
               ]}>
-              <DemoItem
-              >
+              <DemoItem>
                 <DateTimePicker
+                  sx={{ backgroundColor: 'lightblue' }}
+                  onChange={handleDateChange}
+                  value={data.date ? new globalThis.Date(data.date) : null}
 
-                  sx={{
-                    backgroundColor: 'lightblue'
-                  }} />
+                />
               </DemoItem>
             </DemoContainer>
           </LocalizationProvider>

@@ -8,6 +8,7 @@ import {
   Unstable_NumberInput as BaseNumberInput,
   NumberInputProps
 } from '@mui/base/Unstable_NumberInput';
+import { useData } from '../Box/useData';
 
 const CustomNumberInput = React.forwardRef(function CustomNumberInput(
   props: NumberInputProps,
@@ -30,23 +31,14 @@ const CustomNumberInput = React.forwardRef(function CustomNumberInput(
 });
 
 export default function Number() {
-
+  const { setData } = useData();
   <CustomNumberInput aria-label="Demo number input" placeholder="Type a number…" />
+  const [inputValue, setInputValue] = useState<string>('');
 
-  const [inputValue, setInputValue] = useState('');
-
-  const handleInputChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-    setInputValue(event.target.value);
-  };
-
-  const handleKeyDown = (event: { preventDefault?: any; key?: any; }) => {
-    const { key } = event;
-
-    if (key === 'Enter') {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
       event.preventDefault();
-
-      console.log('Number saved:', inputValue);
-
+      setData((prevData) => ({ ...prevData, number: inputValue }));
       setInputValue('');
     }
   };
@@ -80,7 +72,7 @@ export default function Number() {
               label="Enter a number"
               variant="outlined"
               value={inputValue}
-              onChange={handleInputChange}
+              onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
             />
             {/* button to clear the input field */}
