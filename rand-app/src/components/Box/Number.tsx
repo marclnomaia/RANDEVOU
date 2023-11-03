@@ -10,7 +10,7 @@ import {
 } from '@mui/base/Unstable_NumberInput';
 import { useData } from '../Box/useData';
 
-const CustomNumberInput = React.forwardRef(function CustomNumberInput(
+export const CustomNumberInput = React.forwardRef(function CustomNumberInput(
   props: NumberInputProps,
   ref: React.ForwardedRef<HTMLDivElement>,
 ) {
@@ -32,21 +32,30 @@ const CustomNumberInput = React.forwardRef(function CustomNumberInput(
 
 export default function Number() {
   const { setData } = useData();
-  <CustomNumberInput aria-label="Demo number input" placeholder="Type a number…" />
   const [inputValue, setInputValue] = useState<string>('');
+
+  const handleSaveAndClearInput = () => {
+    if (inputValue.trim() !== '') { // verify the field if is empty.
+      setData((prevData) => ({
+        ...prevData,
+        numbers: [...(prevData.number || []), inputValue], // Add number to the array.
+      }));
+    }
+    setInputValue(''); // clean box field.
+  };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       event.preventDefault();
-      setData((prevData) => ({ ...prevData, number: inputValue }));
-      setInputValue('');
+      handleSaveAndClearInput(); // function to clean e save data.
     }
   };
 
-  // Function to clear the input field.
-  const handleClearInput = () => {
-    setInputValue('');
+  const handleBlur = () => {
+    handleSaveAndClearInput();
   };
+
+
 
   return (
     <Grid container spacing={2} padding={3}>
@@ -74,12 +83,13 @@ export default function Number() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
+              onBlur={handleBlur}
             />
-            {/* button to clear the input field */}
+            {/* clean field */}
             {inputValue && (
               <IconButton
                 aria-label="clear"
-                onClick={handleClearInput}
+                onClick={handleSaveAndClearInput}
                 sx={{
                   position: 'absolute',
                   top: '50%',
@@ -94,7 +104,6 @@ export default function Number() {
         </Box>
       </Grid>
     </Grid>
-
   );
 }
 

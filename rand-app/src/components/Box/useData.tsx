@@ -1,4 +1,5 @@
-import React, { useState, createContext, useContext, ReactNode } from 'react';
+import { useState, createContext, useContext, FC, ReactNode, SetStateAction, Dispatch } from 'react';
+
 
 interface DataType {
   date?: string;
@@ -8,7 +9,7 @@ interface DataType {
 
 interface DataContextType {
   data: DataType;
-  setData: React.Dispatch<React.SetStateAction<DataType>>;
+  setData: Dispatch<SetStateAction<DataType>>;
 }
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
@@ -25,7 +26,7 @@ interface DataProviderProps {
   children: ReactNode;
 }
 
-export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
+export const DataProvider: FC<DataProviderProps> = ({ children }) => {
   const [data, setData] = useState<DataType>({});
 
   return (
@@ -34,4 +35,5 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     </DataContext.Provider>
   );
 };
+
 

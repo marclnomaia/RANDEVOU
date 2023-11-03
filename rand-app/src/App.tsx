@@ -13,6 +13,11 @@ import { useEffect } from 'react';
 import PrintButton from './components/Box/PrintButton';
 import { DataProvider } from './components/Box/useData';
 
+import ReactDOM from 'react-dom';
+
+
+
+
 function App() {
   useEffect(() => {
     document.title = "Randevou";
@@ -20,6 +25,7 @@ function App() {
 
   return (
     <div>
+
       <DataProvider>
         <Grid container spacing={1} xs={12} sm={9} md={12}>
           {/*<Grid item xs={12} sm={3} md={12}>
@@ -67,10 +73,6 @@ function App() {
           </Grid>
         </Grid>
       </DataProvider>
-
-
-
-
 
 
     </div >
