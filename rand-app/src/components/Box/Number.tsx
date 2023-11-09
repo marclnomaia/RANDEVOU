@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -9,6 +8,7 @@ import {
   NumberInputProps
 } from '@mui/base/Unstable_NumberInput';
 import { useData } from '../Box/useData';
+import React from 'react';
 
 export const CustomNumberInput = React.forwardRef(function CustomNumberInput(
   props: NumberInputProps,
@@ -32,13 +32,13 @@ export const CustomNumberInput = React.forwardRef(function CustomNumberInput(
 
 export default function Number() {
   const { setData } = useData();
-  const [inputValue, setInputValue] = useState<string>('');
+  const [inputValue, setInputValue] = React.useState<string>('');
 
   const handleSaveAndClearInput = () => {
     if (inputValue.trim() !== '') { // verify the field if is empty.
       setData((prevData) => ({
         ...prevData,
-        numbers: [...(prevData.number || []), inputValue], // Add number to the array.
+        numbers: [...(prevData.numbers || []), inputValue], // Add number to the array.
       }));
     }
     setInputValue(''); // clean box field.
@@ -50,13 +50,9 @@ export default function Number() {
       handleSaveAndClearInput(); // function to clean e save data.
     }
   };
-
   const handleBlur = () => {
     handleSaveAndClearInput();
   };
-
-
-
   return (
     <Grid container spacing={2} padding={3}>
       <Grid item xs={12} sx={{

@@ -1,10 +1,12 @@
-import { useState, createContext, useContext, FC, ReactNode, SetStateAction, Dispatch } from 'react';
-
+import {
+  useState, createContext, useContext, FC,
+  ReactNode, SetStateAction, Dispatch
+} from 'react';
 
 interface DataType {
   date?: string;
-  text?: string;
-  number?: string;
+  text?: string[];
+  numbers?: string[];
 }
 
 interface DataContextType {
@@ -35,5 +37,6 @@ export const DataProvider: FC<DataProviderProps> = ({ children }) => {
     </DataContext.Provider>
   );
 };
+
 
 

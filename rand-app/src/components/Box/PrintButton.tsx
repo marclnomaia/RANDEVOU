@@ -1,37 +1,14 @@
-import * as React from 'react';
 import { useState } from 'react';
-import { Button, Grid, TextField, Box } from '@mui/material';
-//import { useData } from './DataContext'; // Ajuste este import conforme o caminho correto em seu projeto.
+import { Button, Grid, Box } from '@mui/material';
+import { useData } from '../Box/useData';
 
 function PrintButton() {
-  //const [data] = useData();
-  const [dateInput, setDateInput] = useState('');
-  const [textInput, setTextInput] = useState('');
-  const [numberInput, setNumberInput] = useState('');
-
-  // Estado para controlar a visibilidade do box de informações
+  const { data } = useData();
   const [showInfoBox, setShowInfoBox] = useState(false);
-
-  // Manipuladores para atualizar os estados de entrada
-  const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setDateInput(event.target.value);
-  };
-
-  const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTextInput(event.target.value);
-  };
-
-  const handleNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNumberInput(event.target.value);
-  };
-
-  // Quando o botão é pressionado, exibe o box de informações e loga os dados
-  const handleSaveClick = () => {
+  const handlePrintData = () => {
     setShowInfoBox(true);
-    //console.log(data); // Isso assumirá que 'data' é um objeto que você deseja registrar.
+    console.log(data);
   };
-
-  // Corpo principal do componente
   return (
     <Grid
       container
@@ -42,11 +19,11 @@ function PrintButton() {
       style={{ minHeight: '100vh', paddingTop: '10px' }}
     >
       <Grid item>
-        <Button variant="contained" onClick={handleSaveClick}>
-          Save
+        <Button variant="contained" onClick={handlePrintData}>
+          Print Data
         </Button>
       </Grid>
-      {/* Box de informações que mostra os dados coletados, se estiver visível */}
+      {/* Display the information if showInfoBox is true */}
       {showInfoBox && (
         <Grid item>
           <Box
@@ -58,9 +35,9 @@ function PrintButton() {
               textAlign: 'left',
             }}
           >
-            <div>Date: {dateInput}</div>
-            <div>Text: {textInput}</div>
-            <div>Number: {numberInput}</div>
+            <div>Date: {data.date}</div>
+            <div>Text: {data.text}</div>
+            <div>Number: {data.numbers}</div>
           </Box>
         </Grid>
       )}
@@ -69,4 +46,7 @@ function PrintButton() {
 }
 
 export default PrintButton;
+
+
+
 

@@ -1,5 +1,4 @@
 import './App.css';
-import React from 'react';
 //import RandNavBar from './components/Header/RandNavBar';
 //import RandExperience from './components/Body/Profile/RandExperience';
 //import RandTaskBar from './components/Body/Personal_Information/RandTaskBar';
@@ -9,11 +8,8 @@ import Number from './components/Box/Number';
 import Date from './components/Box/Date';
 import { Box, Grid } from '@mui/material';
 import { useEffect } from 'react';
-//import { DataProvider } from './components/Box/DataContext';
 import PrintButton from './components/Box/PrintButton';
 import { DataProvider } from './components/Box/useData';
-
-import ReactDOM from 'react-dom';
 
 
 
@@ -22,6 +18,7 @@ function App() {
   useEffect(() => {
     document.title = "Randevou";
   }, []);
+
 
   return (
     <div>
@@ -52,6 +49,7 @@ function App() {
             <Box>
               {/*<RandTaskBar />*/}
               <Text />
+
             </Box>
           </Grid>
           <Grid item xs={12} sm={4} md={4}>
