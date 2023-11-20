@@ -6,8 +6,10 @@ function PrintButton() {
   const { data } = useData();
   const [showInfoBox, setShowInfoBox] = useState(false);
   const handlePrintData = () => {
-    setShowInfoBox(true);
-    console.log(data);
+    setShowInfoBox(!showInfoBox);
+    if (showInfoBox === false) {
+      console.log(data);
+    }
   };
   return (
     <Grid
@@ -37,7 +39,7 @@ function PrintButton() {
           >
             <div>Date: {data.date}</div>
             <div>Text: {data.text}</div>
-            <div>Number: {data.numbers}</div>
+
           </Box>
         </Grid>
       )}

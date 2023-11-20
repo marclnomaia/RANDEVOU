@@ -30,18 +30,18 @@ export const CustomNumberInput = React.forwardRef(function CustomNumberInput(
   );
 });
 
-export default function Number() {
+export default function NumberA() {
   const { setData } = useData();
-  const [inputValue, setInputValue] = React.useState<string>('');
+  const [inputValue, setInputValue] = React.useState<number>(0);
 
   const handleSaveAndClearInput = () => {
-    if (inputValue.trim() !== '') { // verify the field if is empty.
+    if (inputValue !== 0) { // verify the field if is empty.
       setData((prevData) => ({
         ...prevData,
-        numbers: [...(prevData.numbers || []), inputValue], // Add number to the array.
+        numbers: 0
       }));
     }
-    setInputValue(''); // clean box field.
+    setInputValue(0); // clean box field.
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -77,9 +77,9 @@ export default function Number() {
               label="Enter a number"
               variant="outlined"
               value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              onKeyDown={handleKeyDown}
-              onBlur={handleBlur}
+            //onChange={(e) => setInputValue(0)}
+            //onKeyDown={handleKeyDown}
+            //onBlur={handleBlur}
             />
             {/* clean field */}
             {inputValue && (

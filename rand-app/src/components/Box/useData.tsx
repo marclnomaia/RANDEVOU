@@ -6,7 +6,7 @@ import {
 interface DataType {
   date?: string;
   text?: string[];
-  numbers?: string[];
+  numbers?: Number | 0;
 }
 
 interface DataContextType {

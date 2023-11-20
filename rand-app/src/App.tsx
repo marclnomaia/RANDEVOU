@@ -3,13 +3,14 @@ import './App.css';
 //import RandExperience from './components/Body/Profile/RandExperience';
 //import RandTaskBar from './components/Body/Personal_Information/RandTaskBar';
 //import RandInfo from './components/Body/Head_Info/RandInfo';
-import Text from './components/Box/Text';
-import Number from './components/Box/Number';
-import Date from './components/Box/Date';
-import { Box, Grid } from '@mui/material';
+//import Text from './components/Box/Text';
+//import Number from './components/Box/Number';
+//import Date from './components/Box/Date';
+import { Box, Grid, Table } from '@mui/material';
 import { useEffect } from 'react';
-import PrintButton from './components/Box/PrintButton';
-import { DataProvider } from './components/Box/useData';
+import Forms from './components/Box/Forms';
+//import PrintButton from './components/Box/PrintButton';
+//import { DataProvider } from './components/Box/useData';
 
 
 
@@ -23,9 +24,8 @@ function App() {
   return (
     <div>
 
-      <DataProvider>
-        <Grid container spacing={1} xs={12} sm={9} md={12}>
-          {/*<Grid item xs={12} sm={3} md={12}>
+      <Grid container spacing={1} xs={12} sm={9} md={12}>
+        {/*<Grid item xs={12} sm={3} md={12}>
           <Box>
             <RandNavBar />
           </Box>
@@ -45,32 +45,14 @@ function App() {
               <Box>
                 <RandInfo />
               </Box>*/}
-          <Grid item xs={12} sm={4} md={4}>
-            <Box>
-              {/*<RandTaskBar />*/}
-              <Text />
 
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={4} md={4}>
-            <Box>
-              <Number />
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={4} md={4}>
-            <Box>
-              <Date />
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={12} md={12}>
-            <Box>
-
-              <PrintButton />
-
-            </Box>
-          </Grid>
+        <Grid item xs={12} sm={12} md={12}>
+          <Box>
+            <Forms />
+          </Box>
         </Grid>
-      </DataProvider>
+      </Grid>
+
 
 
     </div >
