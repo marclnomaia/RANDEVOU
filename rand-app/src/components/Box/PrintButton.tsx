@@ -5,12 +5,23 @@ import { useData } from '../Box/useData';
 function PrintButton() {
   const { data } = useData();
   const [showInfoBox, setShowInfoBox] = useState(false);
+
   const handlePrintData = () => {
     setShowInfoBox(!showInfoBox);
-    if (showInfoBox === false) {
+    if (!showInfoBox) {
       console.log(data);
     }
   };
+
+  const formatDate = (dateString: string | number | Date | null) => {
+    if (!dateString) return 'No date available';
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) {
+      return 'Invalid date';
+    }
+    return date.toLocaleString();
+  };
+
   return (
     <Grid
       container
@@ -37,9 +48,8 @@ function PrintButton() {
               textAlign: 'left',
             }}
           >
-            <div>Date: {data.date}</div>
-            <div>Text: {data.text}</div>
-
+            <div>Date: {formatDate(data.date)}</div>
+            <div>Text: {data.text || 'No text available'}</div>
           </Box>
         </Grid>
       )}
